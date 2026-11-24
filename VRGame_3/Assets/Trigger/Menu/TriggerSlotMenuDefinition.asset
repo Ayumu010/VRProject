@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9b7807ae96aa04e975241dba25e33c, type: 3}
+  m_Name: TriggerSlotMenuDefinition
+  m_EditorClassIdentifier: Assembly-CSharp::CombatMenuDefinition
+  menuId: trigger_slot
+  menuName: Trigger Slot
+  options:
+  - id: slot_0
+    value: 0
+    label: Slot 1
+    icon: {fileID: 0}
+    visualPrefab: {fileID: 0}
+    selectionDirection: {x: 0, y: 1}
+    layoutPosition: {x: 0, y: 0.15}
+    enabledByDefault: 1
+  - id: slot_1
+    value: 1
+    label: Slot 2
+    icon: {fileID: 0}
+    visualPrefab: {fileID: 0}
+    selectionDirection: {x: 1, y: 0}
+    layoutPosition: {x: 0.15, y: 0}
+    enabledByDefault: 1
+  - id: slot_2
+    value: 2
+    label: Slot 4
+    icon: {fileID: 0}
+    visualPrefab: {fileID: 0}
+    selectionDirection: {x: 0, y: -1}
+    layoutPosition: {x: 0, y: -0.15}
+    enabledByDefault: 1
+  - id: slot_3
+    value: 3
+    label: Slot 4
+    icon: {fileID: 0}
+    visualPrefab: {fileID: 0}
+    selectionDirection: {x: -1, y: 0}
+    layoutPosition: {x: -0.15, y: 0}
+    enabledByDefault: 1

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b8993eff3e48141b10d2c32f93d446, type: 3}
+  m_Name: Shield
+  m_EditorClassIdentifier: Assembly-CSharp::ShieldBehaviour
+  shieldPrefab: {fileID: 8455682048138184467, guid: a05bcb118df6d7148ad8731cec7f069a, type: 3}
+  menuPrefab: {fileID: 9005852366028156607, guid: 39c1eb271420ee946ae40c1c6ca89499, type: 3}
+  menuDefinition: {fileID: 11400000, guid: cfc278d5818307d4f9e72f77c57f399e, type: 2}
+  wholeBodyShieldPrefab: {fileID: 6275703378395429845, guid: 887504652787360468befb36fa72b086, type: 3}
+  menuHoldSeconds: 0.35
+  menuLocalPosition: {x: 0, y: 0.05, z: 0.15}
+  menuLocalEulerAngles: {x: 0, y: 0, z: 0}
+  followPositionOffset: {x: 0, y: 0, z: 0.25}
+  followRotationOffset: {x: 0, y: 0, z: 0}
+  followSmoothTime: 0.025
+  followRotationSpeed: 25

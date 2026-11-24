@@ -1,0 +1,57 @@
+{
+    "version": 1,
+    "name": "CombatMenuInputActions",
+    "maps": [
+        {
+            "name": "CombatMenu",
+            "id": "e497467d-8425-4822-9dba-76036189aadf",
+            "actions": [
+                {
+                    "name": "MenuHoldLeft",
+                    "type": "Button",
+                    "id": "789a3eb2-4504-4d59-9d25-d2359d84c614",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "MenuHoldRight",
+                    "type": "Button",
+                    "id": "6a77daaa-c542-454a-a003-1d64bc0aa752",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ccba56ae-a6f5-4ab4-893c-ed422949e2b8",
+                    "path": "<XRController>{LeftHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MenuHoldLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c6def4c-c2e0-426c-addb-febcb3f6980f",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MenuHoldRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

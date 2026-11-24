@@ -1,0 +1,645 @@
+{
+    "version": 1,
+    "name": "AdaptiveHandsInputActions",
+    "maps": [
+        {
+            "name": "AdaptiveHands",
+            "id": "60684600-0ffc-46a5-abba-a6fd9a7822c0",
+            "actions": [
+                {
+                    "name": "L_Trigger",
+                    "type": "Value",
+                    "id": "9596d2b6-d8c8-464c-90c9-3a5386918f57",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "R_Trigger",
+                    "type": "Value",
+                    "id": "0b1d0336-c939-48b7-9023-7657f58abed8",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "L_Grip",
+                    "type": "Value",
+                    "id": "70e1ca18-5981-48e7-9784-74e0528c4f20",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "R_Grip",
+                    "type": "Value",
+                    "id": "092a70b1-407c-42ac-a63f-4fb7ce9f1cfb",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "L_TriggerTouch",
+                    "type": "Button",
+                    "id": "142efcc3-d880-43d0-9b13-a5460e529e95",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "R_TriggerTouch",
+                    "type": "Button",
+                    "id": "0720b6d5-540f-4e24-8289-affbacb5e187",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "L_TriggerProximity",
+                    "type": "Button",
+                    "id": "c373ca60-6415-4421-b386-31e06e666ed7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "R_TriggerProximity",
+                    "type": "Button",
+                    "id": "40844bcf-d1f0-4bda-95b9-97148ff5d5ae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "L_TriggerCurl",
+                    "type": "Value",
+                    "id": "ce7d28e6-097f-40e1-b9a9-19b2d54a2b03",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "R_TriggerCurl",
+                    "type": "Value",
+                    "id": "c0064aef-be85-4624-8f0a-9c4a46c6fb5e",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "L_TriggerSlide",
+                    "type": "Value",
+                    "id": "482d6907-c22f-430d-bf60-708f22306e5b",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "R_TriggerSlide",
+                    "type": "Value",
+                    "id": "0a294c77-e2f8-432b-a788-6cb1dc63616b",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "L_TriggerForce",
+                    "type": "Value",
+                    "id": "2d61f6df-070e-44cb-b96a-6fedc0d7068b",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "R_TriggerForce",
+                    "type": "Value",
+                    "id": "8b183956-84d5-4532-ba4e-e3436872e24a",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "L_ThumbProximity",
+                    "type": "Button",
+                    "id": "3d7b3e7c-534d-44ea-87d1-68290399d52d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "R_ThumbProximity",
+                    "type": "Button",
+                    "id": "ec8b6ae1-db76-4919-8091-1198d9e3ea5d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "L_RThumbrestTouched",
+                    "type": "Button",
+                    "id": "6a41a790-96c0-48ec-89a0-06a02efd0057",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "R_RThumbrestTouched",
+                    "type": "Button",
+                    "id": "32ea8951-a7cb-4cde-a26a-3f92b22673bd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "L_ThumbrestTouched",
+                    "type": "Button",
+                    "id": "00154b4d-d4b0-43c2-b825-095692f2e391",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "R_ThumbrestTouched",
+                    "type": "Button",
+                    "id": "a5eb1252-84bd-48df-9a2d-130b959e26ee",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "L_ThumbstickTouched",
+                    "type": "Button",
+                    "id": "8b29e6a2-826d-4838-b9a7-a2d4d053fbf7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "R_ThumbstickTouched",
+                    "type": "Button",
+                    "id": "82f835c7-9993-4776-b628-74e3fdd5587a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "L_PrimaryTouched",
+                    "type": "Button",
+                    "id": "d1048a20-1dfc-4e84-833f-bddea0cbb764",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "R_PrimaryTouched",
+                    "type": "Button",
+                    "id": "90bd78c0-40fa-4b77-9893-fa998c4ca8d0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "L_SecondaryTouched",
+                    "type": "Button",
+                    "id": "8ebaef89-316e-4cda-bb5a-b0c8602ce719",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "R_SecondaryTouched",
+                    "type": "Button",
+                    "id": "b157da07-1e4f-4a54-94eb-87763007be47",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "L_Primary",
+                    "type": "Button",
+                    "id": "a6839049-f934-446d-b5b3-1b78383a63e4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "R_Primary",
+                    "type": "Button",
+                    "id": "f32f5fa2-da43-4866-b4f1-8e77a64885a3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "L_Secondary",
+                    "type": "Button",
+                    "id": "229249d2-36cd-49b2-adbb-603f5fb6d829",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
+                    "name": "R_Secondary",
+                    "type": "Button",
+                    "id": "8a16218b-1816-445c-ab13-773f22f96d68",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2526ed7e-c59f-4373-8ace-e3faf16f117f",
+                    "path": "<QuestTouchPlusController>{LeftHand}/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L_Trigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d78a8bc9-a40b-420e-8bda-6b614f233b2f",
+                    "path": "<QuestTouchPlusController>{RightHand}/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R_Trigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "54d3c924-dce9-432a-b5a8-70410692ba6b",
+                    "path": "<QuestTouchPlusController>{LeftHand}/grip",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L_Grip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "abea42b6-ab73-4ef1-96a0-56a657c69abe",
+                    "path": "<QuestTouchPlusController>{RightHand}/grip",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R_Grip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "175fc0fe-e522-4fff-9a2b-bcd7de818044",
+                    "path": "<QuestTouchPlusController>{LeftHand}/triggerTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L_TriggerTouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "44371fe4-05e0-4a27-86a6-43f168d52528",
+                    "path": "<QuestTouchPlusController>{RightHand}/triggerTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R_TriggerTouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "df764ffa-7fd4-49d1-a4e7-426e56eab888",
+                    "path": "<QuestTouchPlusController>{LeftHand}/triggerProximity",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L_TriggerProximity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "32183471-7994-47df-ba64-30eac5738a6d",
+                    "path": "<QuestTouchPlusController>{RightHand}/triggerProximity",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R_TriggerProximity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "464941be-2287-40ef-8d20-a2a5822cc9f2",
+                    "path": "<QuestTouchPlusController>{LeftHand}/triggerCurl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L_TriggerCurl",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce0c2d88-3ae0-4e73-8ee9-f37515702dbb",
+                    "path": "<QuestTouchPlusController>{RightHand}/triggerCurl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R_TriggerCurl",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3fa09a2e-330f-477c-8f22-78fc9cce9382",
+                    "path": "<QuestTouchPlusController>{RightHand}/triggerSlide",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R_TriggerSlide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2f0000d-cb8c-452e-9e04-d161a04677b3",
+                    "path": "<QuestTouchPlusController>{LeftHand}/triggerSlide",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L_TriggerSlide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "508b075c-07a0-4e2b-9b35-4e3c6ac269a9",
+                    "path": "<QuestTouchPlusController>{LeftHand}/triggerForce",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L_TriggerForce",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c4f23ae-3260-495f-9833-a0eb20da3525",
+                    "path": "<QuestTouchPlusController>{RightHand}/triggerForce",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R_TriggerForce",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dc381de8-28c1-497e-8f69-5e74a1257866",
+                    "path": "<QuestTouchPlusController>{LeftHand}/thumbProximity",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L_ThumbProximity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79162a72-1464-4831-b64f-93c604b35d3c",
+                    "path": "<QuestTouchPlusController>{RightHand}/thumbProximity",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R_ThumbProximity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "59ae9124-0bb0-4792-bb4e-86f9dde50b77",
+                    "path": "<QuestTouchPlusController>{LeftHand}/thumbrestTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L_RThumbrestTouched",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ceae0bc3-fa5e-4519-989c-849d568ed585",
+                    "path": "<QuestTouchPlusController>{RightHand}/thumbrestTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R_RThumbrestTouched",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f482db95-610c-4dd2-9ca1-d27aa0a88701",
+                    "path": "<QuestTouchPlusController>{LeftHand}/thumbrestTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L_ThumbrestTouched",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "902abad5-59f4-4e98-b394-b4a522c75862",
+                    "path": "<QuestTouchPlusController>{RightHand}/thumbrestTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R_ThumbrestTouched",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa8f4f63-3741-4f96-a3a6-3bb878612c88",
+                    "path": "<QuestTouchPlusController>{LeftHand}/thumbstickTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L_ThumbstickTouched",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "044e4f6f-6a22-4ee5-b55f-1091458b7c19",
+                    "path": "<QuestTouchPlusController>{RightHand}/thumbstickTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R_ThumbstickTouched",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f5dc3bd-4c28-44ac-b818-6f91e1a727d0",
+                    "path": "<QuestTouchPlusController>{LeftHand}/primaryTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L_PrimaryTouched",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a9863767-5041-41d9-8ef1-9d85fccf704e",
+                    "path": "<QuestTouchPlusController>{RightHand}/primaryTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R_PrimaryTouched",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b5736dfb-6470-41c8-beab-5cea3efa6c37",
+                    "path": "<QuestTouchPlusController>{LeftHand}/secondaryTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L_SecondaryTouched",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "391b638c-1b31-4e37-a80f-683daad14c14",
+                    "path": "<QuestTouchPlusController>{RightHand}/secondaryTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R_SecondaryTouched",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7ee70506-22d3-4baf-91d9-d7c492076056",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R_Primary",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "74ce7fc4-faee-4564-92c1-48dc2ee953c1",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L_Primary",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "98939c83-e843-495e-a274-363f43e0781e",
+                    "path": "<XRController>{LeftHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "L_Secondary",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5d42af73-b7f6-43b8-ac5c-c35a15b8eef1",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "R_Secondary",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
