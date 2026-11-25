@@ -143,6 +143,8 @@ public sealed class KogetsuWeaponManager : MonoBehaviour
 
         Transform socketAttach = socket.SocketAttachTransform;
         Transform gripAttach = weapon.GripAttachTransform;
+        // 剣がSocketZoneに入る前にSocketを有効化する
+        socket.Initialize(weapon);
         if (socketAttach == null || gripAttach == null)
         {
             Debug.LogError("Kogetsu: GripAttach or SocketAttach is missing.", swordInstance);
@@ -157,11 +159,12 @@ public sealed class KogetsuWeaponManager : MonoBehaviour
         Vector3 rootPosition = socketAttach.position - rootRotation * scaledLocalAttach;
         swordInstance.transform.SetPositionAndRotation(rootPosition, rootRotation);
 
-        weapon.ResetToDroppedAtSocket();
-        socket.Initialize(weapon);
+weapon.ResetToDroppedAtSocket();
 
-        return true;
-    }
+// TransformとPhysicsの位置情報を同期する
+Physics.SyncTransforms();
+
+return true;    }
 
     public bool CanDealDamage(KogetsuWeapon weapon)
     {

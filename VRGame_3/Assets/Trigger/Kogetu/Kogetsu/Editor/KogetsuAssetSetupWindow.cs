@@ -142,6 +142,9 @@ public sealed class KogetsuAssetSetupWindow : EditorWindow
             // Add the interactable after the child colliders exist so its initial
             // collider discovery includes both the handle and blade colliders.
             XRGrabInteractable grab = root.AddComponent<XRGrabInteractable>();
+            // 掴み判定・Socket検出には柄のColliderだけを使用する。
+            grab.colliders.Clear();
+            grab.colliders.Add(handleCollider);
             grab.selectMode = InteractableSelectMode.Single;
             grab.movementType = XRBaseInteractable.MovementType.VelocityTracking;
             grab.throwOnDetach = true;
@@ -156,8 +159,6 @@ public sealed class KogetsuAssetSetupWindow : EditorWindow
             extensionCollider.enabled = true;
             extensionCollider.center = Vector3.zero;
             extensionCollider.size = new Vector3(0.025f, 0.012f, 0.001f);
-            if (!grab.colliders.Contains(extensionCollider))
-                grab.colliders.Add(extensionCollider);
 
             KogetsuBladeExtensionVisual extensionVisual = extensionObject.gameObject.AddComponent<KogetsuBladeExtensionVisual>();
             SetObjectReference(extensionVisual, "bladeBase", bladeBase);
