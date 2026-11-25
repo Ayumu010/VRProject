@@ -150,19 +150,85 @@ public sealed class WholeBodyShieldController : MonoBehaviour
             return false;
         }
 
+        // ----------------------------------------------
+        // Generate Mesh If Missing
+        // ----------------------------------------------
+
+        if (meshFilter.sharedMesh == null)
+        {
+            HollowHexagonalSolid generator =
+                shieldMesh.GetComponent<HollowHexagonalSolid>();
+
+            if (generator == null)
+            {
+                Debug.LogError(
+                    "WholeBodyShieldController: HollowHexagonalSolid component is missing.",
+                    shieldMesh
+                );
+
+                return false;
+            }
+
+            if (!generator.TryGenerateMesh())
+            {
+                Debug.LogError(
+                    "WholeBodyShieldController: Mesh generation failed.",
+                    shieldMesh
+                );
+
+                return false;
+            }
+        }
+
+        // ----------------------------------------------
+        // Validate Generated Mesh
+        // ----------------------------------------------
+
+        // ----------------------------------------------
+        // Generate Mesh If Missing
+        // ----------------------------------------------
+
+        if (meshFilter.sharedMesh == null)
+        {
+            HollowHexagonalSolid generator =
+                shieldMesh.GetComponent<HollowHexagonalSolid>();
+
+            if (generator == null)
+            {
+                Debug.LogError(
+                    "WholeBodyShieldController: HollowHexagonalSolid component is missing.",
+                    shieldMesh
+                );
+
+                return false;
+            }
+
+            Debug.Log(
+                "WholeBodyShieldController: Generating Mesh...",
+                shieldMesh
+            );
+
+            // 既存のメッシュ生成メソッドを呼び出す
+            generator.GenerateMesh();
+        }
+
+        // ----------------------------------------------
+        // Validate Mesh
+        // ----------------------------------------------
+
         Mesh existingMesh =
             meshFilter.sharedMesh;
 
         if (existingMesh == null)
         {
             Debug.LogError(
-                "WholeBodyShieldController: Existing Mesh is missing.",
+                "WholeBodyShieldController: Mesh generation failed.",
                 shieldMesh
             );
 
             return false;
         }
-
+        
         // ----------------------------------------------
         // Use Existing Mesh
         // ----------------------------------------------

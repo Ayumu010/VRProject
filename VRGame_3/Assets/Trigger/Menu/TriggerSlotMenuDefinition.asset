@@ -33,7 +33,7 @@ MonoBehaviour:
     enabledByDefault: 1
   - id: slot_2
     value: 2
-    label: Slot 4
+    label: Slot 3
     icon: {fileID: 0}
     visualPrefab: {fileID: 0}
     selectionDirection: {x: 0, y: -1}

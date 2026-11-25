@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.ProBuilder;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Rigidbody))]
@@ -13,6 +14,9 @@ public sealed class ShieldController : MonoBehaviour
     [Header("Concentration")]
     [SerializeField, Range(0.05f, 1f)]
     private float concentratedAreaRatio = 0.25f;
+
+    [SerializeField, Min(1f)]
+    private float concentratedThicknessMultiplier = 2f;
 
     private Rigidbody body;
 
@@ -121,15 +125,60 @@ public sealed class ShieldController : MonoBehaviour
             return;
         }
 
+        // ----------------------------------------------
+        // Generate Unity Mesh From ProBuilder Data
+        // ----------------------------------------------
+
+        if (meshFilter.sharedMesh == null)
+        {
+            ProBuilderMesh proBuilderMesh =
+                shieldVisual.GetComponent<ProBuilderMesh>();
+
+            if (proBuilderMesh == null)
+            {
+                ReportConfigurationError(
+                    "ProBuilderMesh component is missing."
+                );
+
+                return;
+            }
+
+            try
+            {
+                // ProBuilderの形状データからUnity Meshを構築
+                proBuilderMesh.ToMesh();
+
+                // 頂点属性・法線などを更新
+                proBuilderMesh.Refresh();
+            }
+            catch (System.Exception e)
+            {
+                ReportConfigurationError(
+                    "ProBuilder Mesh Generation Failed: " + e.Message
+                );
+
+                return;
+            }
+        }
+
+        // ----------------------------------------------
+        // Validate Generated Mesh
+        // ----------------------------------------------
+
         if (meshFilter.sharedMesh == null)
         {
             ReportConfigurationError(
-                "ShieldVisual MeshFilter SharedMesh is missing."
+                "ShieldVisual MeshFilter SharedMesh is still missing after ProBuilder generation."
             );
 
             return;
         }
 
+        Debug.Log(
+            $"ShieldController : ProBuilder Mesh Generated - {meshFilter.sharedMesh.name}",
+            shieldVisual
+        );
+        
         // 描画と衝突判定に同じMeshを使用
         shieldCollider.sharedMesh =
             meshFilter.sharedMesh;
@@ -327,19 +376,24 @@ public sealed class ShieldController : MonoBehaviour
 
     private void ApplyConcentrationScale(bool concentrated)
     {
-        float linearScale = concentrated
+        // シールド面の縦横の縮小率
+        float planeScale = concentrated
             ? Mathf.Sqrt(concentratedAreaRatio)
             : 1f;
 
-        // ローカルXY方向だけを縮小。
-        // Z方向の厚みは維持する。
+        // シールドの厚さの倍率
+        float thicknessScale = concentrated
+            ? concentratedThicknessMultiplier
+            : 1f;
+
+        // X・Z方向を縮小し、Y方向の厚さを増やす
         shieldVisual.localScale = new Vector3(
-            normalVisualScale.x * linearScale,
-            normalVisualScale.y * linearScale,
-            normalVisualScale.z
+            normalVisualScale.x * planeScale,
+            normalVisualScale.y * thicknessScale,
+            normalVisualScale.z * planeScale
         );
     }
-
+    
     // ==================================================
     // Fixed Update
     // ==================================================
