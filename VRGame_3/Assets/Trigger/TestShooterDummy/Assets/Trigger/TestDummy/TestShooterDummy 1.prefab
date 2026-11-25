@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7123456789012345678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400100000}
+  - component: {fileID: 114100000}
+  m_Layer: 0
+  m_Name: TestShooterDummy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400100000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7123456789012345678}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 400100001}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114100000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7123456789012345678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d7b0c5f4ef4daab447a5b6e5d7912b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TestDummyShooter
+  target: {fileID: 0}
+  useMainCameraWhenTargetIsMissing: 1
+  defaultProjectilePrefab: {fileID: 8520726668377068683, guid: a7c22918e49e2434e9230bfa0d6a6261, type: 3}
+  muzzle: {fileID: 400100001}
+  triggerSlots:
+  - slotName: Default Projectile
+    side: 0
+    control: 0
+    activation: 0
+    repeatInterval: 1.5
+    action: {fileID: 11400000, guid: 7e75ef92b7f64453a7d929942d853e4a, type: 2}
+    onTriggered:
+      m_PersistentCalls:
+        m_Calls: []
+  inputBindings: []
+  enableActionsIfNeeded: 0
+  autoTriggerEnabled: 1
+  autoTriggerSide: 0
+  autoTriggerControl: 0
+  autoTriggerInterval: 1.5
+  firstAutoTriggerDelay: 2
+  autoTriggerHoldDuration: 0.12
+  logTriggerEvents: 1
+  createFallbackVisual: 1
+--- !u!1 &7123456789012345679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400100001}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400100001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7123456789012345679}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 400100000}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
