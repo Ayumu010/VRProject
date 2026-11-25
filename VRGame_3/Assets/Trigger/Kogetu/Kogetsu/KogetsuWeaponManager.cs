@@ -137,7 +137,9 @@ public sealed class KogetsuWeaponManager : MonoBehaviour
         currentSocket = socket;
         currentSourceSide = sourceSide;
         hasActiveSet = true;
-        weapon.IgnoreCollisionsWith(playerRoot);
+        weapon.IgnoreCollisionsWith(
+            playerRoot,
+            scabbardInstance.transform);
 
         Transform socketAttach = socket.SocketAttachTransform;
         Transform gripAttach = weapon.GripAttachTransform;

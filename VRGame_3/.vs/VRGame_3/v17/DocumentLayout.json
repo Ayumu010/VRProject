@@ -3,15 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\",
   "Documents": [
     {
+<<<<<<< .merge_file_alqKbW
       "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|c:\\users\\smkah\\onedrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\github\\vrproject\\vrgame_3\\assets\\trigger\\kogetu\\kogetsu\\kogetsuweaponmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|solutionrelative:assets\\trigger\\kogetu\\kogetsu\\kogetsuweaponmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+=======
+>>>>>>> .merge_file_GMzP9o
       "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|c:\\users\\smkah\\onedrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\github\\vrproject\\vrgame_3\\assets\\trigger\\kogetu\\kogetsu\\kogetsuweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|solutionrelative:assets\\trigger\\kogetu\\kogetsu\\kogetsuweapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< .merge_file_alqKbW
       "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\assets\\trigger\\shield\\wholebodyshieldcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+=======
+      "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|c:\\users\\smkah\\onedrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\github\\vrproject\\vrgame_3\\assets\\trigger\\shield\\wholebodyshieldcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+>>>>>>> .merge_file_GMzP9o
       "RelativeMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|solutionrelative:assets\\trigger\\shield\\wholebodyshieldcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -179,6 +186,7 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+<<<<<<< .merge_file_alqKbW
               "Title": "KogetsuWeaponManager.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Kogetu\\Kogetsu\\KogetsuWeaponManager.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Kogetu\\Kogetsu\\KogetsuWeaponManager.cs",
@@ -192,19 +200,29 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+=======
+>>>>>>> .merge_file_GMzP9o
               "Title": "KogetsuWeapon.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Kogetu\\Kogetsu\\KogetsuWeapon.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Kogetu\\Kogetsu\\KogetsuWeapon.cs",
               "ToolTip": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Kogetu\\Kogetsu\\KogetsuWeapon.cs",
               "RelativeToolTip": "Assets\\Trigger\\Kogetu\\Kogetsu\\KogetsuWeapon.cs",
+<<<<<<< .merge_file_alqKbW
               "ViewState": "AgIAAIYAAAAAAAAAAAAowJQAAAAAAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+>>>>>>> .merge_file_GMzP9o
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-25T03:27:17.815Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 11,
+=======
+              "DocumentIndex": 10,
+>>>>>>> .merge_file_GMzP9o
               "Title": "CombatMenuSlotConnector.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Input\\CombatMenuSlotConnector.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Input\\CombatMenuSlotConnector.cs",
@@ -216,7 +234,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 12,
+=======
+              "DocumentIndex": 11,
+>>>>>>> .merge_file_GMzP9o
               "Title": "TriggerInputTestBehaviour.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Manager\\TriggerInputTestBehaviour.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Manager\\TriggerInputTestBehaviour.cs",
@@ -228,7 +250,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 14,
+=======
+              "DocumentIndex": 13,
+>>>>>>> .merge_file_GMzP9o
               "Title": "TriggerSlotMenuSession.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Scripts\\CombatMenu\\TriggerSlotMenuSession.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatMenu\\TriggerSlotMenuSession.cs",
@@ -240,7 +266,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 24,
+=======
+              "DocumentIndex": 23,
+>>>>>>> .merge_file_GMzP9o
               "Title": "CombatHandMenu.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Scripts\\CombatMenu\\CombatHandMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatMenu\\CombatHandMenu.cs",
@@ -252,7 +282,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 7,
+=======
+              "DocumentIndex": 6,
+>>>>>>> .merge_file_GMzP9o
               "Title": "CombatMenuOptionView.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Scripts\\CombatMenu\\CombatMenuOptionView.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatMenu\\CombatMenuOptionView.cs",
@@ -264,7 +298,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 27,
+=======
+              "DocumentIndex": 26,
+>>>>>>> .merge_file_GMzP9o
               "Title": "CombatMenuDefinition.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Scripts\\CombatMenu\\CombatMenuDefinition.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatMenu\\CombatMenuDefinition.cs",
@@ -276,7 +314,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 6,
+=======
+              "DocumentIndex": 5,
+>>>>>>> .merge_file_GMzP9o
               "Title": "HollowHexagonalSolid.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\Mesh\\HollowHexagonalSolid.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\Mesh\\HollowHexagonalSolid.cs",
@@ -288,7 +330,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 9,
+=======
+              "DocumentIndex": 8,
+>>>>>>> .merge_file_GMzP9o
               "Title": "ShieldSelectionMenu.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\ShieldSelectionMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\ShieldSelectionMenu.cs",
@@ -300,7 +346,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 10,
+=======
+              "DocumentIndex": 9,
+>>>>>>> .merge_file_GMzP9o
               "Title": "ShieldMovementMode.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\ShieldMovementMode.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\ShieldMovementMode.cs",
@@ -312,7 +362,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 4,
+=======
+              "DocumentIndex": 3,
+>>>>>>> .merge_file_GMzP9o
               "Title": "ShieldSystemCoordinator.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\ShieldSystemCoordinator.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\ShieldSystemCoordinator.cs",
@@ -324,7 +378,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 2,
+=======
+              "DocumentIndex": 1,
+>>>>>>> .merge_file_GMzP9o
               "Title": "WholeBodyShieldController.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\WholeBodyShieldController.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\WholeBodyShieldController.cs",
@@ -336,7 +394,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 3,
+=======
+              "DocumentIndex": 2,
+>>>>>>> .merge_file_GMzP9o
               "Title": "ShieldBehaviour.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\ShieldBehaviour.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\ShieldBehaviour.cs",
@@ -348,7 +410,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 5,
+=======
+              "DocumentIndex": 4,
+>>>>>>> .merge_file_GMzP9o
               "Title": "ShieldController.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\ShieldController.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\ShieldController.cs",
@@ -360,7 +426,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 8,
+=======
+              "DocumentIndex": 7,
+>>>>>>> .merge_file_GMzP9o
               "Title": "ShieldSurface.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\ShieldSurface.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\ShieldSurface.cs",
@@ -372,7 +442,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 34,
+=======
+              "DocumentIndex": 33,
+>>>>>>> .merge_file_GMzP9o
               "Title": "ProjectileCollisionInfo.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Scripts\\ProjectileCollisionSystem\\ProjectileCollisionInfo.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ProjectileCollisionSystem\\ProjectileCollisionInfo.cs",
@@ -384,7 +458,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 32,
+=======
+              "DocumentIndex": 31,
+>>>>>>> .merge_file_GMzP9o
               "Title": "IProjectileCollisionReceiver.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Scripts\\ProjectileCollisionSystem\\IProjectileCollisionReceiver.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ProjectileCollisionSystem\\IProjectileCollisionReceiver.cs",
@@ -396,7 +474,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 28,
+=======
+              "DocumentIndex": 27,
+>>>>>>> .merge_file_GMzP9o
               "Title": "Asteroid.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Asteroid\\Asteroid.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Asteroid\\Asteroid.cs",
@@ -408,7 +490,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 29,
+=======
+              "DocumentIndex": 28,
+>>>>>>> .merge_file_GMzP9o
               "Title": "AsteroidCubePiece.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Asteroid\\Effect\\AsteroidCubePiece.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Asteroid\\Effect\\AsteroidCubePiece.cs",
@@ -420,7 +506,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 22,
+=======
+              "DocumentIndex": 21,
+>>>>>>> .merge_file_GMzP9o
               "Title": "CombatHandPositionSelector.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Scripts\\CombatMenu\\CombatHandPositionSelector.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatMenu\\CombatHandPositionSelector.cs",
@@ -432,7 +522,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 23,
+=======
+              "DocumentIndex": 22,
+>>>>>>> .merge_file_GMzP9o
               "Title": "CombatMenuController.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Scripts\\CombatMenu\\CombatMenuController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatMenu\\CombatMenuController.cs",
@@ -444,7 +538,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 21,
+=======
+              "DocumentIndex": 20,
+>>>>>>> .merge_file_GMzP9o
               "Title": "CombatMenuUI.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Scripts\\CombatMenu\\CombatMenuUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatMenu\\CombatMenuUI.cs",
@@ -456,7 +554,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 25,
+=======
+              "DocumentIndex": 24,
+>>>>>>> .merge_file_GMzP9o
               "Title": "TriggerSlotManager.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Manager\\TriggerSlotManager.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Manager\\TriggerSlotManager.cs",
@@ -468,7 +570,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 26,
+=======
+              "DocumentIndex": 25,
+>>>>>>> .merge_file_GMzP9o
               "Title": "AsteroidSplitMenu.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Menu\\AsteroidSplitMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Menu\\AsteroidSplitMenu.cs",
@@ -480,7 +586,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 18,
+=======
+              "DocumentIndex": 17,
+>>>>>>> .merge_file_GMzP9o
               "Title": "TriggerSlotData.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Manager\\TriggerSlotData.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Manager\\TriggerSlotData.cs",
@@ -492,7 +602,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 19,
+=======
+              "DocumentIndex": 18,
+>>>>>>> .merge_file_GMzP9o
               "Title": "TriggerRuntimeContext.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Manager\\TriggerRuntimeContext.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Manager\\TriggerRuntimeContext.cs",
@@ -504,7 +618,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 13,
+=======
+              "DocumentIndex": 12,
+>>>>>>> .merge_file_GMzP9o
               "Title": "TriggerInputRouter.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Manager\\TriggerInputRouter.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Manager\\TriggerInputRouter.cs",
@@ -516,7 +634,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 20,
+=======
+              "DocumentIndex": 19,
+>>>>>>> .merge_file_GMzP9o
               "Title": "TriggerBehaviour.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Manager\\TriggerBehaviour.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Manager\\TriggerBehaviour.cs",
@@ -528,7 +650,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 16,
+=======
+              "DocumentIndex": 15,
+>>>>>>> .merge_file_GMzP9o
               "Title": "TriggerSide.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Manager\\TriggerSide.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Manager\\TriggerSide.cs",
@@ -540,7 +666,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 17,
+=======
+              "DocumentIndex": 16,
+>>>>>>> .merge_file_GMzP9o
               "Title": "TriggerDefinition.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Manager\\TriggerDefinition.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Manager\\TriggerDefinition.cs",
@@ -552,7 +682,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 15,
+=======
+              "DocumentIndex": 14,
+>>>>>>> .merge_file_GMzP9o
               "Title": "TriggerControl.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Manager\\TriggerControl.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Manager\\TriggerControl.cs",
@@ -564,7 +698,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 36,
+=======
+              "DocumentIndex": 35,
+>>>>>>> .merge_file_GMzP9o
               "Title": "ScorpionTriggerBehaviour.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\ScorpionTriggerBehaviour.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\ScorpionTriggerBehaviour.cs",
@@ -576,7 +714,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 37,
+=======
+              "DocumentIndex": 36,
+>>>>>>> .merge_file_GMzP9o
               "Title": "PlayerIdentity.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Player\\Component\\PlayerIdentity.cs",
               "RelativeDocumentMoniker": "Assets\\Player\\Component\\PlayerIdentity.cs",
@@ -588,7 +730,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 35,
+=======
+              "DocumentIndex": 34,
+>>>>>>> .merge_file_GMzP9o
               "Title": "AsteroidEffekseerControl.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Asteroid\\Effect\\AsteroidEffekseerControl.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Asteroid\\Effect\\AsteroidEffekseerControl.cs",
@@ -600,7 +746,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 31,
+=======
+              "DocumentIndex": 30,
+>>>>>>> .merge_file_GMzP9o
               "Title": "ProjectileController.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Asteroid\\ProjectileController.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Asteroid\\ProjectileController.cs",
@@ -612,7 +762,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 38,
+=======
+              "DocumentIndex": 37,
+>>>>>>> .merge_file_GMzP9o
               "Title": "EffekseerPlayAndPause.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Asteroid\\Effect\\EffekseerPlayAndPause.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Asteroid\\Effect\\EffekseerPlayAndPause.cs",
@@ -624,7 +778,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 33,
+=======
+              "DocumentIndex": 32,
+>>>>>>> .merge_file_GMzP9o
               "Title": "ProjectileCollisionSystem.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Scripts\\ProjectileCollisionSystem\\ProjectileCollisionSystem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ProjectileCollisionSystem\\ProjectileCollisionSystem.cs",
@@ -636,7 +794,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 30,
+=======
+              "DocumentIndex": 29,
+>>>>>>> .merge_file_GMzP9o
               "Title": "AsteroidBulletController.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Asteroid\\Effect\\AsteroidBulletController.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Asteroid\\Effect\\AsteroidBulletController.cs",
@@ -648,7 +810,11 @@
             },
             {
               "$type": "Document",
+<<<<<<< .merge_file_alqKbW
               "DocumentIndex": 39,
+=======
+              "DocumentIndex": 38,
+>>>>>>> .merge_file_GMzP9o
               "Title": "CubeController.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\CubeController\\CubeController.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\CubeController\\CubeController.cs",

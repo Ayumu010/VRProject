@@ -87,6 +87,7 @@
     <Compile Include="Assets\Trigger\Manager\TriggerRuntimeContext.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\BezierCurve.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\LaunchProjectile.cs" />
+    <Compile Include="Assets\Trigger\TestShooterDummy\Assets\Trigger\TestDummy\Actions\TestDummyProjectileAction.cs" />
     <Compile Include="Assets\Trigger\Shield\ShieldSystemCoordinator.cs" />
     <Compile Include="Assets\Trigger\Shield\ShieldSelectionMenu.cs" />
     <Compile Include="Assets\Trigger\Kogetu\Kogetsu\KogetsuWeaponState.cs" />
@@ -123,16 +124,19 @@
     <Compile Include="Assets\Trigger\Asteroid\ProjectileController.cs" />
     <Compile Include="Assets\Trigger\Manager\TriggerBehaviour.cs" />
     <Compile Include="Assets\Scripts\ProjectileCollisionSystem\ProjectileCollisionSystem.cs" />
+    <Compile Include="Assets\Trigger\TestShooterDummy\Assets\Trigger\TestDummy\TestDummyContext.cs" />
     <Compile Include="Assets\Trigger\Kogetu\Kogetsu\SenkuTriggerBehaviour.cs" />
     <Compile Include="Assets\Trigger\Kogetu\Kogetsu\IKogetsuDamageReceiver.cs" />
     <Compile Include="Assets\Trigger\Asteroid\Effect\AsteroidEffekseerControl.cs" />
     <Compile Include="Assets\Trigger\Asteroid\Effect\AsteroidProjectileController.cs" />
     <Compile Include="Assets\Scripts\CombatMenu\CombatMenuDefinition.cs" />
     <Compile Include="Assets\Trigger\Manager\TriggerSlotData.cs" />
+    <Compile Include="Assets\Trigger\TestShooterDummy\Assets\Trigger\TestDummy\TestDummyTriggerAction.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\StepManager.cs" />
     <Compile Include="Assets\Trigger\Asteroid\Effect\AsteroidCubePiece.cs" />
     <Compile Include="Assets\Trigger\Asteroid\Asteroid.cs" />
     <Compile Include="Assets\Trigger\Shield\ShieldBehaviour.cs" />
+    <Compile Include="Assets\Trigger\TestShooterDummy\Assets\Trigger\TestDummy\TestDummyShooter.cs" />
     <Compile Include="Assets\Scripts\ProjectileCollisionSystem\ProjectileCollisionInfo.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\AnchorVisuals.cs" />
     <Compile Include="Assets\AdaptiveHands\Pose\HandPoseController.cs" />

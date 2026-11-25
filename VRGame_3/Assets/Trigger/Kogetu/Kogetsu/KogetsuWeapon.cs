@@ -97,25 +97,52 @@ public sealed class KogetsuWeapon : MonoBehaviour
         return weaponManager != null && currentHolderSide.HasValue && weaponManager.CanDealDamage(this);
     }
 
-    public void IgnoreCollisionsWith(Transform playerRoot)
+    public void IgnoreCollisionsWith(
+        Transform playerRoot,
+        Transform excludedRoot = null)
     {
         if (playerRoot == null)
             return;
 
-        Collider[] weaponColliders = GetComponentsInChildren<Collider>(true);
-        Collider[] playerColliders = playerRoot.GetComponentsInChildren<Collider>(true);
+        Collider[] weaponColliders =
+            GetComponentsInChildren<Collider>(true);
 
-        for (int weaponIndex = 0; weaponIndex < weaponColliders.Length; weaponIndex++)
+        Collider[] playerColliders =
+            playerRoot.GetComponentsInChildren<Collider>(true);
+
+        for (int weaponIndex = 0;
+             weaponIndex < weaponColliders.Length;
+             weaponIndex++)
         {
-            Collider weaponCollider = weaponColliders[weaponIndex];
+            Collider weaponCollider =
+                weaponColliders[weaponIndex];
+
             if (weaponCollider == null)
                 continue;
 
-            for (int playerIndex = 0; playerIndex < playerColliders.Length; playerIndex++)
+            for (int playerIndex = 0;
+                 playerIndex < playerColliders.Length;
+                 playerIndex++)
             {
-                Collider playerCollider = playerColliders[playerIndex];
-                if (playerCollider != null && weaponCollider != playerCollider)
-                    Physics.IgnoreCollision(weaponCollider, playerCollider, true);
+                Collider playerCollider =
+                    playerColliders[playerIndex];
+
+                if (playerCollider == null ||
+                    weaponCollider == playerCollider)
+                    continue;
+
+                // 鞘側のColliderは衝突無視の対象から除外する
+                if (excludedRoot != null &&
+                    (playerCollider.transform == excludedRoot ||
+                     playerCollider.transform.IsChildOf(excludedRoot)))
+                {
+                    continue;
+                }
+
+                Physics.IgnoreCollision(
+                    weaponCollider,
+                    playerCollider,
+                    true);
             }
         }
     }
