@@ -74,7 +74,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WholeBodyShieldController
   shieldMesh: {fileID: 5753915039884611473}
-  centerLocalOffset: {x: 0, y: 1, z: 0}
+  centerLocalOffset: {x: 0, y: -0.2, z: 0}
+  movementCancelDistance: 0.2
   contactOffset: 0.002
 --- !u!1 &6525607293409998589
 GameObject:
@@ -89,6 +90,7 @@ GameObject:
   - component: {fileID: 1421410579437104517}
   - component: {fileID: 3080758693443590300}
   - component: {fileID: 6082505099814355364}
+  - component: {fileID: 3047111010181836286}
   m_Layer: 0
   m_Name: HollowHexagonalSolid
   m_TagString: Untagged
@@ -204,3 +206,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShieldSurface
   baseMaxDurability: 100
   contactOffset: 0.002
+--- !u!114 &3047111010181836286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525607293409998589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa506386c5c6c6408a56b652affce60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HollowHexagonalSolid
+  radius: 0.65
+  prismHeight: 1.3
+  topPyramidHeight: 0.5
+  bottomPyramidHeight: 0.5
+  thickness: 0.03
+  generateCollider: 1
+  generatedMesh: {fileID: 0}

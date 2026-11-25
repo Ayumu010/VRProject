@@ -31,7 +31,8 @@ public class HollowHexagonalSolid : MonoBehaviour
     [Header("生成情報")]
     [SerializeField]
     private Mesh generatedMesh;
-
+    [NonSerialized]
+    private bool ownsGeneratedMesh;
     private const float Epsilon = 0.00001f;
 
     private struct FacePlane
@@ -49,14 +50,27 @@ public class HollowHexagonalSolid : MonoBehaviour
     [ContextMenu("Generate Mesh")]
     public void GenerateMesh()
     {
+        TryGenerateMesh();
+    }
+
+    /// <summary>
+    /// メッシュの生成を試みる。
+    /// 成功した場合はtrueを返す。
+    /// </summary>
+    public bool TryGenerateMesh()
+    {
         if (radius <= 0 ||
             prismHeight <= 0 ||
             topPyramidHeight <= 0 ||
             bottomPyramidHeight <= 0 ||
             thickness <= 0)
         {
-            Debug.LogError("寸法には正の値を設定してください。", this);
-            return;
+            Debug.LogError(
+                "寸法には正の値を設定してください。",
+                this
+            );
+
+            return false;
         }
 
         ClearData();
@@ -68,16 +82,23 @@ public class HollowHexagonalSolid : MonoBehaviour
             CreateFacePlanes();
             CreateInnerVertices();
             BuildMesh();
+
+            MeshFilter filter = GetComponent<MeshFilter>();
+
+            return generatedMesh != null &&
+                   filter != null &&
+                   filter.sharedMesh == generatedMesh;
         }
         catch (Exception e)
         {
             Debug.LogError(
-                "中空六角形メッシュの生成に失敗しました。\n" + e.Message,
+                "中空六角形メッシュの生成に失敗しました。\n" + e,
                 this
             );
+
+            return false;
         }
     }
-
     private void ClearData()
     {
         outerVertices.Clear();
@@ -387,33 +408,81 @@ public class HollowHexagonalSolid : MonoBehaviour
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
 
-        // 古いMeshを破棄
-        if (generatedMesh != null)
+        // ----------------------------------------------
+        // Mesh References
+        // ----------------------------------------------
+
+        MeshFilter meshFilter =
+            GetComponent<MeshFilter>();
+
+        if (meshFilter == null)
         {
-            if (Application.isPlaying)
-                Destroy(generatedMesh);
-            else
-                DestroyImmediate(generatedMesh);
+            DestroyGeneratedMesh(mesh);
+
+            throw new InvalidOperationException(
+                "MeshFilterが見つかりません。"
+            );
         }
+
+        MeshCollider meshCollider =
+            GetComponent<MeshCollider>();
+
+        if (generateCollider && meshCollider == null)
+        {
+            meshCollider =
+                gameObject.AddComponent<MeshCollider>();
+        }
+
+        // ----------------------------------------------
+        // Previous Mesh
+        // ----------------------------------------------
+
+        Mesh previousMesh = generatedMesh;
+
+        bool shouldDestroyPreviousMesh =
+            ownsGeneratedMesh;
+
+        // 自分が生成した古いMeshだけ参照を解除する
+        if (shouldDestroyPreviousMesh &&
+            previousMesh != null)
+        {
+            if (meshFilter.sharedMesh == previousMesh)
+            {
+                meshFilter.sharedMesh = null;
+            }
+
+            if (meshCollider != null &&
+                meshCollider.sharedMesh == previousMesh)
+            {
+                meshCollider.sharedMesh = null;
+            }
+        }
+
+        // ----------------------------------------------
+        // Assign New Mesh
+        // ----------------------------------------------
 
         generatedMesh = mesh;
 
-        MeshFilter meshFilter = GetComponent<MeshFilter>();
+        ownsGeneratedMesh = true;
+
         meshFilter.sharedMesh = generatedMesh;
 
-        if (generateCollider)
+        if (generateCollider &&
+            meshCollider != null)
         {
-            MeshCollider meshCollider =
-                GetComponent<MeshCollider>();
-
-            if (meshCollider == null)
-            {
-                meshCollider =
-                    gameObject.AddComponent<MeshCollider>();
-            }
-
             meshCollider.sharedMesh = null;
             meshCollider.sharedMesh = generatedMesh;
+        }
+
+        // ----------------------------------------------
+        // Release Previous Mesh
+        // ----------------------------------------------
+
+        if (shouldDestroyPreviousMesh &&
+            previousMesh != null)
+        {
+            DestroyGeneratedMesh(previousMesh);
         }
 
         Debug.Log(
@@ -449,5 +518,61 @@ public class HollowHexagonalSolid : MonoBehaviour
                 triangles.Add(c);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (!ownsGeneratedMesh ||
+            generatedMesh == null)
+        {
+            return;
+        }
+
+        Mesh mesh = generatedMesh;
+
+        MeshFilter meshFilter =
+            GetComponent<MeshFilter>();
+
+        MeshCollider meshCollider =
+            GetComponent<MeshCollider>();
+
+        // Meshへの参照を先に解除
+        if (meshFilter != null &&
+            meshFilter.sharedMesh == mesh)
+        {
+            meshFilter.sharedMesh = null;
+        }
+
+        if (meshCollider != null &&
+            meshCollider.sharedMesh == mesh)
+        {
+            meshCollider.sharedMesh = null;
+        }
+
+        DestroyGeneratedMesh(mesh);
+
+        generatedMesh = null;
+
+        ownsGeneratedMesh = false;
+    }
+
+    private static void DestroyGeneratedMesh(Mesh mesh)
+    {
+        if (mesh == null)
+            return;
+
+        if (Application.isPlaying)
+        {
+            UnityEngine.Object.Destroy(mesh);
+            return;
+        }
+
+#if UNITY_EDITOR
+        // Assetとして保存されているMeshは破棄しない
+        if (UnityEditor.EditorUtility.IsPersistent(mesh))
+            return;
+#endif
+
+        UnityEngine.Object.DestroyImmediate(mesh);
     }
 }

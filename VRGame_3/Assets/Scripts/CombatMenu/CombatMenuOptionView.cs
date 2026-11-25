@@ -87,8 +87,6 @@ public sealed class CombatMenuOptionView : MonoBehaviour
         spawnedVisual.transform.localRotation =
             Quaternion.identity;
 
-        spawnedVisual.transform.localScale =
-            Vector3.one;
     }
 
     // ==================================================

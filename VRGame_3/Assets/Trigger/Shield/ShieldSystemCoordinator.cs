@@ -70,6 +70,9 @@ public sealed class ShieldSystemCoordinator : MonoBehaviour
 
         activeWholeBodyShield = controller;
 
+        // 全身シールドの展開中は通常シールドをすべて解除
+        DestroyNormalShields();
+
         Debug.Log(
             "WholeBodyShield : Activated",
             this
@@ -116,5 +119,36 @@ public sealed class ShieldSystemCoordinator : MonoBehaviour
                 this
             );
         }
+    }
+
+    // ==================================================
+    // Destroy Normal Shields
+    // ==================================================
+
+    private void DestroyNormalShields()
+    {
+        // PlayerRoot以下に存在する通常シールドをすべて取得
+        ShieldController[] shields =
+            GetComponentsInChildren<ShieldController>(true);
+
+        int destroyedCount = 0;
+
+        foreach (ShieldController shield in shields)
+        {
+            if (shield == null)
+                continue;
+
+            // Destroyの実行完了を待たず、先に表示とColliderを無効化する
+            shield.gameObject.SetActive(false);
+
+            Destroy(shield.gameObject);
+
+            destroyedCount++;
+        }
+
+        Debug.Log(
+            $"WholeBodyShield : Removed {destroyedCount} normal shields.",
+            this
+        );
     }
 }

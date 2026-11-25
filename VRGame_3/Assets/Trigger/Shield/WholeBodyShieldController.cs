@@ -14,6 +14,10 @@ public sealed class WholeBodyShieldController : MonoBehaviour
     private Vector3 centerLocalOffset =
         new Vector3(0f, 1f, 0f);
 
+    [Header("Movement Cancel")]
+    [SerializeField, Min(0.01f)]
+    private float movementCancelDistance = 0.05f;
+
     [Header("Collision")]
     [SerializeField, Min(0.0001f)]
     private float contactOffset = 0.002f;
@@ -37,6 +41,10 @@ public sealed class WholeBodyShieldController : MonoBehaviour
     public ShieldSurface Surface => surface;
 
     public bool IsInitialized => isInitialized;
+
+    private Transform movementTrackingRoot;
+
+    private Vector3 initialPlayerPosition;
 
     // ==================================================
     // Awake
@@ -150,19 +158,85 @@ public sealed class WholeBodyShieldController : MonoBehaviour
             return false;
         }
 
+        // ----------------------------------------------
+        // Generate Mesh If Missing
+        // ----------------------------------------------
+
+        if (meshFilter.sharedMesh == null)
+        {
+            HollowHexagonalSolid generator =
+                shieldMesh.GetComponent<HollowHexagonalSolid>();
+
+            if (generator == null)
+            {
+                Debug.LogError(
+                    "WholeBodyShieldController: HollowHexagonalSolid component is missing.",
+                    shieldMesh
+                );
+
+                return false;
+            }
+
+            if (!generator.TryGenerateMesh())
+            {
+                Debug.LogError(
+                    "WholeBodyShieldController: Mesh generation failed.",
+                    shieldMesh
+                );
+
+                return false;
+            }
+        }
+
+        // ----------------------------------------------
+        // Validate Generated Mesh
+        // ----------------------------------------------
+
+        // ----------------------------------------------
+        // Generate Mesh If Missing
+        // ----------------------------------------------
+
+        if (meshFilter.sharedMesh == null)
+        {
+            HollowHexagonalSolid generator =
+                shieldMesh.GetComponent<HollowHexagonalSolid>();
+
+            if (generator == null)
+            {
+                Debug.LogError(
+                    "WholeBodyShieldController: HollowHexagonalSolid component is missing.",
+                    shieldMesh
+                );
+
+                return false;
+            }
+
+            Debug.Log(
+                "WholeBodyShieldController: Generating Mesh...",
+                shieldMesh
+            );
+
+            // 既存のメッシュ生成メソッドを呼び出す
+            generator.GenerateMesh();
+        }
+
+        // ----------------------------------------------
+        // Validate Mesh
+        // ----------------------------------------------
+
         Mesh existingMesh =
             meshFilter.sharedMesh;
 
         if (existingMesh == null)
         {
             Debug.LogError(
-                "WholeBodyShieldController: Existing Mesh is missing.",
+                "WholeBodyShieldController: Mesh generation failed.",
                 shieldMesh
             );
 
             return false;
         }
-
+        
         // ----------------------------------------------
         // Use Existing Mesh
         // ----------------------------------------------
@@ -211,10 +285,19 @@ public sealed class WholeBodyShieldController : MonoBehaviour
 
         coordinator = systemCoordinator;
 
-        transform.SetParent(
-            playerRoot,
-            true
-        );
+        // プレイヤーの移動・回転を監視するTransform
+        movementTrackingRoot =
+            playerRoot.parent != null
+                ? playerRoot.parent
+                : playerRoot;
+
+        // 展開した瞬間の位置と向きを保存
+        initialPlayerPosition =
+            movementTrackingRoot.position;
+
+        // プレイヤーの子から外す。
+        // これをしないと親の移動に巻き込まれてシールドも移動する。
+        transform.SetParent(null, true);
 
         surface.ResetSurface();
 
@@ -238,13 +321,12 @@ public sealed class WholeBodyShieldController : MonoBehaviour
         if (playerRoot == null)
             return;
 
-        Vector3 position =
-            playerRoot.TransformPoint(
-                centerLocalOffset
-            );
-
         Quaternion rotation =
             GetPlayerHorizontalRotation();
+
+        Vector3 position =
+            playerRoot.position +
+            rotation * centerLocalOffset;
 
         transform.SetPositionAndRotation(
             position,
@@ -258,11 +340,25 @@ public sealed class WholeBodyShieldController : MonoBehaviour
 
     private Quaternion GetPlayerHorizontalRotation()
     {
+        // アバターの親であるPlayerModelの向きを使用
+        Transform facingSource =
+            playerRoot.parent != null
+                ? playerRoot.parent
+                : playerRoot;
+
         Vector3 forward =
             Vector3.ProjectOnPlane(
-                playerRoot.forward,
+                facingSource.forward,
                 Vector3.up
             );
+
+        if (forward.sqrMagnitude < 0.0001f)
+        {
+            forward = Vector3.ProjectOnPlane(
+                -playerRoot.up,
+                Vector3.up
+            );
+        }
 
         if (forward.sqrMagnitude < 0.0001f)
         {
@@ -281,23 +377,49 @@ public sealed class WholeBodyShieldController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isInitialized ||
-            playerRoot == null)
+        if (!isInitialized)
+            return;
+
+        if (movementTrackingRoot == null)
         {
+            if (coordinator != null)
+            {
+                coordinator.DeactivateWholeBodyShield();
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
             return;
         }
 
-        Vector3 targetPosition =
-            playerRoot.TransformPoint(
-                centerLocalOffset
+        // プレイヤーの位置移動だけを確認
+        Vector3 movement =
+            movementTrackingRoot.position -
+            initialPlayerPosition;
+
+        bool hasMoved =
+            movement.sqrMagnitude >=
+            movementCancelDistance * movementCancelDistance;
+
+        // 移動した場合だけ解除
+        if (hasMoved)
+        {
+            Debug.Log(
+                "WholeBodyShield : Deactivated because player moved.",
+                this
             );
 
-        Quaternion targetRotation =
-            GetPlayerHorizontalRotation();
-
-        body.MovePosition(targetPosition);
-
-        body.MoveRotation(targetRotation);
+            if (coordinator != null)
+            {
+                coordinator.DeactivateWholeBodyShield();
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     // ==================================================
@@ -346,6 +468,11 @@ public sealed class WholeBodyShieldController : MonoBehaviour
         contactOffset = Mathf.Max(
             0.0001f,
             contactOffset
+        );
+
+        movementCancelDistance = Mathf.Max(
+            0.01f,
+            movementCancelDistance
         );
     }
 }

@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CombatMenu\CombatMenuController.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\VideoPlayerRenderTexture.cs" />
+    <Compile Include="Assets\Trigger\Kogetu\Kogetsu\KogetsuWeapon.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\Rotator.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\XRKnob.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\BooleanToggleVisualsController.cs" />
@@ -71,7 +72,9 @@
     <Compile Include="Assets\Trigger\Shield\Mesh\HollowHexagonalSolid.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\RayAttachModifier.cs" />
     <Compile Include="Assets\Scripts\XRHeightCalibration.cs" />
+    <Compile Include="Assets\Trigger\Kogetu\Kogetsu\KogetsuWeaponManager.cs" />
     <Compile Include="Assets\AdaptiveHands\Input\AdaptiveHandInputDriver.cs" />
+    <Compile Include="Assets\Trigger\Kogetu\Kogetsu\KogetsuScabbardSocket.cs" />
     <Compile Include="Assets\Trigger\Shield\ShieldMovementMode.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\XRPokeFollowAffordanceFill.cs" />
     <Compile Include="Assets\Scripts\CombatMenu\TriggerSlotMenuSession.cs" />
@@ -79,15 +82,19 @@
     <Compile Include="Assets\Trigger\Shield\ShieldSurface.cs" />
     <Compile Include="Assets\Scripts\CombatMenu\CombatMenuUI.cs" />
     <Compile Include="Assets\Player\Component\PlayerIdentity.cs" />
+    <Compile Include="Assets\Trigger\Kogetu\Kogetsu\KogetsuTriggerBehaviour.cs" />
     <Compile Include="Assets\Effekseer\Example\EfkBasic.cs" />
     <Compile Include="Assets\Trigger\Manager\TriggerRuntimeContext.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\BezierCurve.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\LaunchProjectile.cs" />
     <Compile Include="Assets\Trigger\Shield\ShieldSystemCoordinator.cs" />
     <Compile Include="Assets\Trigger\Shield\ShieldSelectionMenu.cs" />
+    <Compile Include="Assets\Trigger\Kogetu\Kogetsu\KogetsuWeaponState.cs" />
     <Compile Include="Assets\Trigger\Manager\TriggerInputTestBehaviour.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\DestroyObject.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\VideoTimeScrubControl.cs" />
+    <Compile Include="Assets\Trigger\Kogetu\Kogetsu\KogetsuBladeDamage.cs" />
+    <Compile Include="Assets\Trigger\Kogetu\Kogetsu\KogetsuBladeExtensionVisual.cs" />
     <Compile Include="Assets\Scripts\AnimateOnInput.cs" />
     <Compile Include="Assets\Trigger\Manager\TriggerDefinition.cs" />
     <Compile Include="Assets\Scripts\CombatMenu\CombatHandMenu.cs" />
@@ -109,12 +116,15 @@
     <Compile Include="Assets\AdaptiveHands\Input\HandInputState.cs" />
     <Compile Include="Assets\Trigger\Shield\WholeBodyShieldController.cs" />
     <Compile Include="Assets\Trigger\Asteroid\Effect\EffekseerPlayAndPause.cs" />
+    <Compile Include="Assets\Trigger\Kogetu\Kogetsu\KogetsuDamageInfo.cs" />
     <Compile Include="Assets\Trigger\Input\CombatMenuSlotConnector.cs" />
     <Compile Include="Assets\Trigger\ScorpionTriggerBehaviour.cs" />
     <Compile Include="Assets\Trigger\Manager\TriggerControl.cs" />
     <Compile Include="Assets\Trigger\Asteroid\ProjectileController.cs" />
     <Compile Include="Assets\Trigger\Manager\TriggerBehaviour.cs" />
     <Compile Include="Assets\Scripts\ProjectileCollisionSystem\ProjectileCollisionSystem.cs" />
+    <Compile Include="Assets\Trigger\Kogetu\Kogetsu\SenkuTriggerBehaviour.cs" />
+    <Compile Include="Assets\Trigger\Kogetu\Kogetsu\IKogetsuDamageReceiver.cs" />
     <Compile Include="Assets\Trigger\Asteroid\Effect\AsteroidEffekseerControl.cs" />
     <Compile Include="Assets\Trigger\Asteroid\Effect\AsteroidProjectileController.cs" />
     <Compile Include="Assets\Scripts\CombatMenu\CombatMenuDefinition.cs" />
