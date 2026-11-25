@@ -74,7 +74,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WholeBodyShieldController
   shieldMesh: {fileID: 5753915039884611473}
-  centerLocalOffset: {x: 0, y: 1, z: 0}
+  centerLocalOffset: {x: 0, y: -0.2, z: 0}
+  movementCancelDistance: 0.2
   contactOffset: 0.002
 --- !u!1 &6525607293409998589
 GameObject:
@@ -218,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HollowHexagonalSolid
   radius: 0.65
-  prismHeight: 1
+  prismHeight: 1.3
   topPyramidHeight: 0.5
   bottomPyramidHeight: 0.5
   thickness: 0.03

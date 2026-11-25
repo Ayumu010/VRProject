@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc1b2b335d34a0ca1571f0000000004, type: 3}
+  m_Name: KogetsuBehaviour
+  m_EditorClassIdentifier: Assembly-CSharp::KogetsuTriggerBehaviour
+  swordPrefab: {fileID: 6315013812926185218, guid: 66690afca119eac44ac82ff840d22a50, type: 3}
+  scabbardPrefab: {fileID: 1429416168783363693, guid: ab354e5e5222bf94e9690d0c4d9e8a30, type: 3}
+  leftWaistLocalPosition: {x: -0.13, y: 0.03, z: 0.01}
+  leftWaistLocalEulerAngles: {x: 0, y: 0, z: 12}
+  rightWaistLocalPosition: {x: 0.13, y: 0.03, z: 0.01}
+  rightWaistLocalEulerAngles: {x: 0, y: 0, z: -12}

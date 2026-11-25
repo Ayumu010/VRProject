@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|c:\\users\\smkah\\onedrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\github\\vrproject\\vrgame_3\\assets\\trigger\\shield\\shieldcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|solutionrelative:assets\\trigger\\shield\\shieldcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|c:\\users\\smkah\\onedrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\github\\vrproject\\vrgame_3\\assets\\trigger\\shield\\wholebodyshieldcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|solutionrelative:assets\\trigger\\shield\\wholebodyshieldcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\assets\\trigger\\shield\\wholebodyshieldcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|solutionrelative:assets\\trigger\\shield\\wholebodyshieldcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\assets\\trigger\\shield\\shieldbehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|solutionrelative:assets\\trigger\\shield\\shieldbehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\assets\\trigger\\shield\\shieldsystemcoordinator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|solutionrelative:assets\\trigger\\shield\\shieldsystemcoordinator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\assets\\trigger\\shield\\shieldcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|solutionrelative:assets\\trigger\\shield\\shieldcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\assets\\trigger\\shield\\mesh\\hollowhexagonalsolid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\assets\\scripts\\combatmenu\\combatmenuoptionview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combatmenu\\combatmenuoptionview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\assets\\trigger\\shield\\shieldsystemcoordinator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|solutionrelative:assets\\trigger\\shield\\shieldsystemcoordinator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\assets\\trigger\\shield\\shieldsurface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\assets\\trigger\\shield\\shieldmovementmode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|solutionrelative:assets\\trigger\\shield\\shieldmovementmode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\assets\\trigger\\shield\\shieldbehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|solutionrelative:assets\\trigger\\shield\\shieldbehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{25DCA26D-90DE-4972-118D-5A682EE511EA}|Assembly-CSharp.csproj|C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\assets\\trigger\\input\\combatmenuslotconnector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -162,7 +162,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -218,7 +218,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "CombatMenuOptionView.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Scripts\\CombatMenu\\CombatMenuOptionView.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CombatMenu\\CombatMenuOptionView.cs",
@@ -242,7 +242,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "HollowHexagonalSolid.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\Mesh\\HollowHexagonalSolid.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\Mesh\\HollowHexagonalSolid.cs",
@@ -254,7 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ShieldSelectionMenu.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\ShieldSelectionMenu.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\ShieldSelectionMenu.cs",
@@ -266,7 +266,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "ShieldMovementMode.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\ShieldMovementMode.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\ShieldMovementMode.cs",
@@ -278,43 +278,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "ShieldSystemCoordinator.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\ShieldSystemCoordinator.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\ShieldSystemCoordinator.cs",
               "ToolTip": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\ShieldSystemCoordinator.cs",
               "RelativeToolTip": "Assets\\Trigger\\Shield\\ShieldSystemCoordinator.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAIwHgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAowIMAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:52:33.56Z"
+              "WhenOpened": "2026-11-19T01:52:33.56Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "WholeBodyShieldController.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\WholeBodyShieldController.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\WholeBodyShieldController.cs",
               "ToolTip": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\WholeBodyShieldController.cs",
               "RelativeToolTip": "Assets\\Trigger\\Shield\\WholeBodyShieldController.cs",
-              "ViewState": "AgIAAKYAAAAAAAAAAAAowK8AAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAMsBAAAAAAAAAAAgwNsBAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-19T01:51:57.002Z"
+              "WhenOpened": "2026-11-19T01:51:57.002Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "ShieldBehaviour.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\ShieldBehaviour.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\ShieldBehaviour.cs",
               "ToolTip": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\ShieldBehaviour.cs",
               "RelativeToolTip": "Assets\\Trigger\\Shield\\ShieldBehaviour.cs",
-              "ViewState": "AgIAAKUCAAAAAAAAAAAIwMMCAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAPoBAAAAAAAAAAAiwAACAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-18T03:21:19.716Z"
+              "WhenOpened": "2026-11-18T03:21:19.716Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "ShieldController.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\ShieldController.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\ShieldController.cs",
@@ -322,12 +325,11 @@
               "RelativeToolTip": "Assets\\Trigger\\Shield\\ShieldController.cs",
               "ViewState": "AgIAAHUBAAAAAAAAAAAIwIwBAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-18T03:20:57.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-18T03:20:57.291Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ShieldSurface.cs",
               "DocumentMoniker": "C:\\Users\\smkah\\OneDrive - \u5B66\u6821\u6CD5\u4EBA\u65B0\u6F5F\u7DCF\u5408\u5B66\u9662 \u5B66\u6821\u6CD5\u4EBA\u56FD\u969B\u7DCF\u5408\u5B66\u5712 \u5B66\u6821\u6CD5\u4EBA\u5927\u5F66\u5B66\u5712\\\u30C9\u30AD\u30E5\u30E1\u30F3\u30C8\\GitHub\\VRProject\\VRGame_3\\Assets\\Trigger\\Shield\\ShieldSurface.cs",
               "RelativeDocumentMoniker": "Assets\\Trigger\\Shield\\ShieldSurface.cs",

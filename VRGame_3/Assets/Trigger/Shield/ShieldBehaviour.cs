@@ -320,6 +320,7 @@ public sealed class ShieldBehaviour : TriggerBehaviour
         // ----------------------------------------------
 
         bool wholeBodyAvailable =
+            Side == TriggerSide.Main &&
             AreBothHandsShieldSelected();
 
         // ----------------------------------------------
@@ -391,6 +392,15 @@ public sealed class ShieldBehaviour : TriggerBehaviour
                 break;
 
             case 4:
+                if (Side != TriggerSide.Main)
+                {
+                    Debug.LogWarning(
+                        "WholeBodyShield can only be toggled from Main hand."
+                    );
+
+                    break;
+                }
+
                 ToggleWholeBodyShield();
                 break;
 
@@ -447,6 +457,33 @@ public sealed class ShieldBehaviour : TriggerBehaviour
 
     private void ToggleNormalShield()
     {
+        // ----------------------------------------------
+        // Whole Body Shield Check
+        // ----------------------------------------------
+
+        if (PlayerRoot != null)
+        {
+            ShieldSystemCoordinator coordinator =
+                PlayerRoot.GetComponent<ShieldSystemCoordinator>();
+
+            // 全身シールド展開中なら単押しで解除
+            if (coordinator != null &&
+                coordinator.IsWholeBodyShieldActive)
+            {
+                coordinator.DeactivateWholeBodyShield();
+
+                Debug.Log(
+                    $"WholeBodyShield : Deactivated by single trigger [{Side}]"
+                );
+
+                return;
+            }
+        }
+
+        // ----------------------------------------------
+        // Normal Shield Toggle
+        // ----------------------------------------------
+
         if (activeShield != null)
         {
             DestroyActiveShield();
@@ -469,6 +506,23 @@ public sealed class ShieldBehaviour : TriggerBehaviour
         {
             Debug.LogError(
                 $"Shield [{Side}] : Spawn References are missing."
+            );
+
+            return false;
+        }
+
+        // ----------------------------------------------
+        // Whole Body Shield Check
+        // ----------------------------------------------
+
+        ShieldSystemCoordinator coordinator =
+            PlayerRoot.GetComponent<ShieldSystemCoordinator>();
+
+        if (coordinator != null &&
+            coordinator.IsWholeBodyShieldActive)
+        {
+            Debug.Log(
+                $"Shield [{Side}] : Normal shield spawn blocked because WholeBodyShield is active."
             );
 
             return false;
@@ -519,6 +573,15 @@ public sealed class ShieldBehaviour : TriggerBehaviour
 
     private void ToggleWholeBodyShield()
     {
+        if (Side != TriggerSide.Main)
+        {
+            Debug.LogWarning(
+                "WholeBodyShield can only be controlled by Main hand."
+            );
+
+            return;
+        }
+
         if (!AreBothHandsShieldSelected())
         {
             Debug.LogWarning(

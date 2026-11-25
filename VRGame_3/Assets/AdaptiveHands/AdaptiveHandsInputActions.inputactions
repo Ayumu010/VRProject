@@ -311,7 +311,7 @@
                 {
                     "name": "",
                     "id": "2526ed7e-c59f-4373-8ace-e3faf16f117f",
-                    "path": "<QuestTouchPlusController>{LeftHand}/trigger",
+                    "path": "<XRController>{LeftHand}/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -322,7 +322,7 @@
                 {
                     "name": "",
                     "id": "d78a8bc9-a40b-420e-8bda-6b614f233b2f",
-                    "path": "<QuestTouchPlusController>{RightHand}/trigger",
+                    "path": "<XRController>{RightHand}/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -333,7 +333,7 @@
                 {
                     "name": "",
                     "id": "54d3c924-dce9-432a-b5a8-70410692ba6b",
-                    "path": "<QuestTouchPlusController>{LeftHand}/grip",
+                    "path": "<XRController>{LeftHand}/grip",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -344,7 +344,7 @@
                 {
                     "name": "",
                     "id": "abea42b6-ab73-4ef1-96a0-56a657c69abe",
-                    "path": "<QuestTouchPlusController>{RightHand}/grip",
+                    "path": "<XRController>{RightHand}/grip",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
