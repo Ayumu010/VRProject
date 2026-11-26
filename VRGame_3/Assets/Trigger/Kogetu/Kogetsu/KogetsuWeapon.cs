@@ -182,6 +182,17 @@ public sealed class KogetsuWeapon : MonoBehaviour
             extensionVisual.SetExtensionLength(active ? extensionLength : 0f);
     }
 
+    /// <summary>
+    /// 旋空Trailの発生を切り替える。
+    /// </summary>
+    public void SetSenkuTrailEmitting(bool emitting)
+    {
+        if (extensionVisual == null)
+            return;
+
+        extensionVisual.SetTrailEmitting(emitting);
+    }
+
     public void CancelSenkuImmediately()
     {
         SetSenkuExtension(false, 0f, 1f, 0f);

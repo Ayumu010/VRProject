@@ -55,8 +55,11 @@ public sealed class KogetsuBladeDamage : MonoBehaviour
 
     private float senkuExtensionLength;
     private float currentDamageMultiplier = 1f;
-    private float currentMinimumSwingSpeed;
-    private bool senkuActive;
+    // 前フレームの実際の刀身位置。
+    // 旋空の延長が有効になっても、この履歴は維持する。
+    private Vector3 previousBasePosition;
+    private Vector3 previousTipPosition; private bool senkuActive;
+    private float currentSenkuTrailMinimumSwingSpeed = 1.5f;
     private bool hasHistory;
     private bool attackWindowOpen;
     private float idleTime;
@@ -71,7 +74,6 @@ public sealed class KogetsuBladeDamage : MonoBehaviour
     {
         weapon = ownerWeapon;
         weaponManager = manager;
-        currentMinimumSwingSpeed = minimumSwingSpeed;
         ResetSampling();
     }
 
@@ -82,63 +84,128 @@ public sealed class KogetsuBladeDamage : MonoBehaviour
         float senkuMinimumSwingSpeed)
     {
         senkuActive = active;
-        senkuExtensionLength = active ? Mathf.Max(0f, extensionLength) : 0f;
-        currentDamageMultiplier = active ? Mathf.Max(0.01f, damageMultiplier) : 1f;
-        currentMinimumSwingSpeed = active
-            ? Mathf.Max(0f, senkuMinimumSwingSpeed)
-            : minimumSwingSpeed;
 
-        ResetSampling();
+        senkuExtensionLength = active
+            ? Mathf.Max(0f, extensionLength)
+            : 0f;
+
+        currentDamageMultiplier = active
+            ? Mathf.Max(0.01f, damageMultiplier)
+            : 1f;
+
+        currentSenkuTrailMinimumSwingSpeed = active
+            ? Mathf.Max(0f, senkuMinimumSwingSpeed)
+            : 0f;
+
+        // 剣速の発動条件は KogetsuWeaponManager 側で判定する。
+        // 通常攻撃の minimumSwingSpeed は変更しない。
+        //
+        // 重要：ここで ResetSampling() を呼ばない。
+        // 履歴を残すことで旋空発動直後の一振りを判定できる。
     }
 
     private void LateUpdate()
     {
-        if (weapon == null || weaponManager == null ||
-            bladeBase == null || bladeTip == null ||
+        if (weapon == null ||
+            weaponManager == null ||
+            bladeBase == null ||
+            bladeTip == null ||
             !weapon.CanDealDamageNow())
         {
             ResetSampling();
             return;
         }
 
-        Vector3 basePosition = bladeBase.position;
-        Vector3 direction = (bladeTip.position - basePosition).normalized;
-        if (direction.sqrMagnitude < 0.0001f)
+        if (weapon != null)
+            weapon.SetSenkuTrailEmitting(false);
+
+        // 現在の実際の刀身位置を取得
+        Vector3 currentBasePosition = bladeBase.position;
+        Vector3 currentTipPosition = bladeTip.position;
+
+        Vector3 currentDirection =
+            (currentTipPosition - currentBasePosition).normalized;
+
+        if (currentDirection.sqrMagnitude < 0.0001f)
         {
             ResetSampling();
             return;
         }
 
-        Vector3 effectiveTip = bladeTip.position + direction * senkuExtensionLength;
-        EnsureSampleCapacity(Vector3.Distance(basePosition, effectiveTip));
-        BuildCurrentSamples(basePosition, effectiveTip);
-
+        // 初回は履歴だけ保存する
         if (!hasHistory)
         {
-            CopyCurrentToPrevious();
+            previousBasePosition = currentBasePosition;
+            previousTipPosition = currentTipPosition;
             hasHistory = true;
             return;
         }
 
         float deltaTime = Mathf.Max(Time.deltaTime, 0.0001f);
-        float swingSpeed = 0f;
-        Vector3 swingDirection = direction;
 
-        for (int i = 0; i < currentSampleCount; i++)
+        // 旋空の延長を含まない、実際の刀身の速度を計測する
+        float swingSpeed = CalculatePhysicalSwingSpeed(
+            previousBasePosition,
+            previousTipPosition,
+            currentBasePosition,
+            currentTipPosition,
+            deltaTime,
+            out Vector3 swingDirection);
+
+        // Armed 中で剣速条件を満たした場合、
+        // Manager が Active へ移行させる。
+        // Active になると senkuExtensionLength がここで更新される。
+        if (swingSpeed >= 0.05f)
         {
-            Vector3 delta = currentSamplePoints[i] - previousSamplePoints[i];
-            float distance = delta.magnitude;
-            float speed = distance / deltaTime;
-            if (speed > swingSpeed)
-            {
-                swingSpeed = speed;
-                if (distance > 0.0001f)
-                    swingDirection = delta / distance;
-            }
+            weaponManager.TryActivateArmedSenku(swingSpeed);
         }
 
-        float requiredSpeed = Mathf.Max(0.05f, currentMinimumSwingSpeed);
-        if (swingSpeed >= requiredSpeed)
+        // 旋空Active中かつ、剣速が条件を満たしている間だけTrailを発生させる。
+        weapon.SetSenkuTrailEmitting(
+            senkuActive &&
+            swingSpeed >= Mathf.Max(
+                0.05f,
+                currentSenkuTrailMinimumSwingSpeed));
+
+        // 前フレームと現在フレームの刀身方向
+        Vector3 previousDirection =
+            (previousTipPosition - previousBasePosition).normalized;
+
+        if (previousDirection.sqrMagnitude < 0.0001f)
+            previousDirection = currentDirection;
+
+        // 前フレーム・現在フレームの両方に
+        // 同じ旋空延長距離を適用する。
+        //
+        // これにより延長そのものが移動速度として計測されない。
+        Vector3 previousEffectiveTip =
+            previousTipPosition + previousDirection * senkuExtensionLength;
+
+        Vector3 currentEffectiveTip =
+            currentTipPosition + currentDirection * senkuExtensionLength;
+
+        float effectiveBladeLength = Mathf.Max(
+            Vector3.Distance(previousBasePosition, previousEffectiveTip),
+            Vector3.Distance(currentBasePosition, currentEffectiveTip));
+
+        EnsureSampleCapacity(effectiveBladeLength);
+
+        // 前フレームと現在フレームの攻撃判定用サンプルを構築
+        BuildBladeSamples(
+            previousBasePosition,
+            previousEffectiveTip,
+            previousSamplePoints);
+
+        BuildBladeSamples(
+            currentBasePosition,
+            currentEffectiveTip,
+            currentSamplePoints);
+
+        // 通常攻撃の下限速度でダメージ判定する。
+        // 旋空の発動条件 1.5m/s とは独立している。
+        float requiredDamageSpeed = Mathf.Max(0.05f, minimumSwingSpeed);
+
+        if (swingSpeed >= requiredDamageSpeed)
         {
             if (!attackWindowOpen)
             {
@@ -147,11 +214,13 @@ public sealed class KogetsuBladeDamage : MonoBehaviour
             }
 
             idleTime = 0f;
+
             SweepBlade(swingSpeed, swingDirection);
         }
         else
         {
             idleTime += deltaTime;
+
             if (idleTime >= swingResetDelay)
             {
                 attackWindowOpen = false;
@@ -159,7 +228,9 @@ public sealed class KogetsuBladeDamage : MonoBehaviour
             }
         }
 
-        CopyCurrentToPrevious();
+        // 次フレーム用に、実際の刀身位置だけを保存する。
+        previousBasePosition = currentBasePosition;
+        previousTipPosition = currentTipPosition;
     }
 
     private void SweepBlade(float swingSpeed, Vector3 swingDirection)
@@ -310,37 +381,108 @@ public sealed class KogetsuBladeDamage : MonoBehaviour
         return null;
     }
 
-    private void EnsureSampleCapacity(float effectiveBladeLength)
+
+
+    private int CalculateSampleCount(float effectiveBladeLength)
     {
         maximumSampleCount = Mathf.Clamp(maximumSampleCount, 2, 128);
         maximumSampleSpacing = Mathf.Max(0.01f, maximumSampleSpacing);
 
-        float effectiveSampleSpacing = Mathf.Min(maximumSampleSpacing, sweepRadius * 2f);
-        int requiredCount = Mathf.CeilToInt(effectiveBladeLength / effectiveSampleSpacing) + 1;
-        int targetCount = Mathf.Clamp(requiredCount, 2, maximumSampleCount);
+        float effectiveSampleSpacing =
+            Mathf.Min(maximumSampleSpacing, sweepRadius * 2f);
 
-        if (previousSamplePoints == null || previousSamplePoints.Length != targetCount)
+        int requiredCount =
+            Mathf.CeilToInt(effectiveBladeLength / effectiveSampleSpacing) + 1;
+
+        return Mathf.Clamp(requiredCount, 2, maximumSampleCount);
+    }
+
+    private void EnsureSampleCapacity(float effectiveBladeLength)
+    {
+        int targetCount = CalculateSampleCount(effectiveBladeLength);
+
+        if (previousSamplePoints == null ||
+            previousSamplePoints.Length != targetCount)
         {
             previousSamplePoints = new Vector3[targetCount];
             currentSamplePoints = new Vector3[targetCount];
-            currentSampleCount = targetCount;
-            hasHistory = false;
         }
+
+        currentSampleCount = targetCount;
+
+        // 配列を再確保しても hasHistory は false にしない。
+        // 前フレームの実位置から配列を再構築できるため。
     }
 
-    private void BuildCurrentSamples(Vector3 basePosition, Vector3 tipPosition)
+    private void BuildBladeSamples(
+        Vector3 basePosition,
+        Vector3 tipPosition,
+        Vector3[] targetPoints)
     {
         for (int i = 0; i < currentSampleCount; i++)
         {
             float t = i / (float)(currentSampleCount - 1);
-            currentSamplePoints[i] = Vector3.Lerp(basePosition, tipPosition, t);
+
+            targetPoints[i] = Vector3.Lerp(
+                basePosition,
+                tipPosition,
+                t);
         }
     }
 
-    private void CopyCurrentToPrevious()
+    private float CalculatePhysicalSwingSpeed(
+    Vector3 previousBase,
+    Vector3 previousTip,
+    Vector3 currentBase,
+    Vector3 currentTip,
+    float deltaTime,
+    out Vector3 swingDirection)
     {
-        for (int i = 0; i < currentSampleCount; i++)
-            previousSamplePoints[i] = currentSamplePoints[i];
+        swingDirection = (currentTip - currentBase).normalized;
+
+        float previousLength =
+            Vector3.Distance(previousBase, previousTip);
+
+        float currentLength =
+            Vector3.Distance(currentBase, currentTip);
+
+        float bladeLength = Mathf.Max(
+            previousLength,
+            currentLength);
+
+        int sampleCount = CalculateSampleCount(bladeLength);
+
+        float maximumSpeed = 0f;
+
+        for (int i = 0; i < sampleCount; i++)
+        {
+            float t = i / (float)(sampleCount - 1);
+
+            Vector3 previousPoint = Vector3.Lerp(
+                previousBase,
+                previousTip,
+                t);
+
+            Vector3 currentPoint = Vector3.Lerp(
+                currentBase,
+                currentTip,
+                t);
+
+            Vector3 movement = currentPoint - previousPoint;
+
+            float distance = movement.magnitude;
+            float speed = distance / deltaTime;
+
+            if (speed > maximumSpeed)
+            {
+                maximumSpeed = speed;
+
+                if (distance > 0.0001f)
+                    swingDirection = movement / distance;
+            }
+        }
+
+        return maximumSpeed;
     }
 
     private void ResetSampling()

@@ -1,8 +1,10 @@
+
 using UnityEngine;
 
 /// <summary>
-/// 刀身先端からローカルZ方向へ伸びる矩形断面メッシュを生成する旋空用表示。
-/// Extension Material は発光/半透明など任意のMaterialを割り当てる。
+/// 刀身先端からローカルZ方向へ伸びる旋空用表示。
+/// 攻撃判定は KogetsuBladeDamage が担当し、
+/// このコンポーネントのColliderは物理判定に使用しない。
 /// </summary>
 [DisallowMultipleComponent]
 [RequireComponent(typeof(MeshFilter))]
@@ -10,24 +12,32 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public sealed class KogetsuBladeExtensionVisual : MonoBehaviour
 {
+    [Header("Blade Points")]
     [SerializeField]
     private Transform bladeBase;
 
     [SerializeField]
     private Transform bladeTip;
 
+    [Header("Extension Shape")]
     [SerializeField, Min(0.001f)]
     private float extensionWidth = 0.025f;
 
     [SerializeField, Min(0.001f)]
     private float extensionThickness = 0.012f;
 
+    [Header("Senku Trail")]
+    [SerializeField]
+    private TrailRenderer senkuTrail;
+
     private MeshFilter meshFilter;
     private MeshRenderer meshRenderer;
     private BoxCollider physicalCollider;
     private Mesh generatedMesh;
+
     private float extensionLength;
     private bool warnedAboutMaterial;
+    private bool initialized;
 
     private void Awake()
     {
@@ -36,37 +46,82 @@ public sealed class KogetsuBladeExtensionVisual : MonoBehaviour
 
     public void Initialize()
     {
-        if (meshFilter == null)
-            meshFilter = GetComponent<MeshFilter>();
-
-        if (meshRenderer == null)
-            meshRenderer = GetComponent<MeshRenderer>();
-
-        if (physicalCollider == null)
-            physicalCollider = GetComponent<BoxCollider>();
-
-        if (physicalCollider != null)
-            physicalCollider.isTrigger = false;
-
-        if (generatedMesh == null)
+        if (initialized)
         {
-            generatedMesh = new Mesh
-            {
-                name = "Kogetsu_SenkuExtension_Runtime"
-            };
-            generatedMesh.MarkDynamic();
-            meshFilter.sharedMesh = generatedMesh;
+            DisableExtensionCollider();
+            return;
         }
 
+        meshFilter = GetComponent<MeshFilter>();
+        meshRenderer = GetComponent<MeshRenderer>();
+        physicalCollider = GetComponent<BoxCollider>();
+
+        if (senkuTrail == null)
+            senkuTrail = GetComponentInChildren<TrailRenderer>(true);
+
+        DisableExtensionCollider();
+
+        generatedMesh = new Mesh
+        {
+            name = "Kogetsu_SenkuExtension_Runtime"
+        };
+
+        generatedMesh.MarkDynamic();
+        meshFilter.sharedMesh = generatedMesh;
+
+        if (senkuTrail != null)
+        {
+            senkuTrail.emitting = false;
+            senkuTrail.Clear();
+        }
+
+        initialized = true;
         UpdateVisibility();
     }
 
+    /// <summary>
+    /// 旋空の延長距離を変更する。
+    /// 0から正の値へ変わるときだけ、前回のTrailを消去する。
+    /// </summary>
     public void SetExtensionLength(float length)
     {
         Initialize();
-        extensionLength = Mathf.Max(0f, length);
+
+        float newLength = Mathf.Max(0f, length);
+        bool wasInactive = extensionLength <= 0f;
+        bool willBeActive = newLength > 0f;
+
+        if (wasInactive && willBeActive && senkuTrail != null)
+        {
+            senkuTrail.emitting = false;
+            senkuTrail.Clear();
+        }
+
+        if (!willBeActive && senkuTrail != null)
+        {
+            // 残像は消去せず、Emissionだけを停止する。
+            senkuTrail.emitting = false;
+        }
+
+        extensionLength = newLength;
+
         RebuildMesh();
         UpdateVisibility();
+    }
+
+    /// <summary>
+    /// 剣速に応じてTrailの発生を切り替える。
+    /// TrailRenderer.Timeによる残像の消失はUnity側に任せる。
+    /// </summary>
+    public void SetTrailEmitting(bool emitting)
+    {
+        Initialize();
+
+        if (senkuTrail == null)
+            return;
+
+        senkuTrail.emitting =
+            emitting && extensionLength > 0f;
     }
 
     private void LateUpdate()
@@ -74,17 +129,35 @@ public sealed class KogetsuBladeExtensionVisual : MonoBehaviour
         if (bladeBase == null || bladeTip == null)
             return;
 
-        Vector3 direction = (bladeTip.position - bladeBase.position).normalized;
+        Vector3 direction =
+            (bladeTip.position - bladeBase.position).normalized;
+
         if (direction.sqrMagnitude < 0.0001f)
             return;
 
         Vector3 up = bladeBase.up;
+
         if (Mathf.Abs(Vector3.Dot(direction, up)) > 0.98f)
             up = bladeBase.right;
 
+        Quaternion bladeRotation =
+            Quaternion.LookRotation(direction, up);
+
+        // 延長メッシュの基準位置は通常の刀身先端。
         transform.SetPositionAndRotation(
             bladeTip.position,
-            Quaternion.LookRotation(direction, up));
+            bladeRotation);
+
+        // Trailは延長後の実効先端に配置する。
+        if (senkuTrail != null)
+        {
+            Vector3 effectiveTip =
+                bladeTip.position + direction * extensionLength;
+
+            senkuTrail.transform.SetPositionAndRotation(
+                effectiveTip,
+                bladeRotation);
+        }
     }
 
     private void RebuildMesh()
@@ -93,15 +166,7 @@ public sealed class KogetsuBladeExtensionVisual : MonoBehaviour
             return;
 
         generatedMesh.Clear();
-
-        if (physicalCollider != null)
-        {
-            float colliderLength = Mathf.Max(0.001f, extensionLength);
-            physicalCollider.center = new Vector3(0f, 0f, extensionLength > 0f ? extensionLength * 0.5f : 0f);
-            physicalCollider.size = new Vector3(extensionWidth, extensionThickness, colliderLength);
-            physicalCollider.isTrigger = false;
-            physicalCollider.enabled = true;
-        }
+        DisableExtensionCollider();
 
         if (extensionLength <= 0f)
             return;
@@ -115,6 +180,7 @@ public sealed class KogetsuBladeExtensionVisual : MonoBehaviour
             new Vector3( halfWidth, -halfThickness, 0f),
             new Vector3( halfWidth,  halfThickness, 0f),
             new Vector3(-halfWidth,  halfThickness, 0f),
+
             new Vector3(-halfWidth, -halfThickness, extensionLength),
             new Vector3( halfWidth, -halfThickness, extensionLength),
             new Vector3( halfWidth,  halfThickness, extensionLength),
@@ -125,14 +191,19 @@ public sealed class KogetsuBladeExtensionVisual : MonoBehaviour
         {
             // Near cap
             0, 2, 1, 0, 3, 2,
+
             // Far cap
             4, 5, 6, 4, 6, 7,
+
             // Bottom
             0, 1, 5, 0, 5, 4,
+
             // Top
             3, 7, 6, 3, 6, 2,
+
             // Left
             0, 4, 7, 0, 7, 3,
+
             // Right
             1, 2, 6, 1, 6, 5
         };
@@ -141,7 +212,6 @@ public sealed class KogetsuBladeExtensionVisual : MonoBehaviour
         generatedMesh.triangles = triangles;
         generatedMesh.RecalculateNormals();
         generatedMesh.RecalculateBounds();
-
     }
 
     private void UpdateVisibility()
@@ -149,20 +219,42 @@ public sealed class KogetsuBladeExtensionVisual : MonoBehaviour
         if (meshRenderer == null)
             return;
 
-        bool hasMaterial = meshRenderer.sharedMaterial != null;
-        meshRenderer.enabled = extensionLength > 0f && hasMaterial;
+        bool hasMaterial =
+            meshRenderer.sharedMaterial != null;
+
+        meshRenderer.enabled =
+            extensionLength > 0f && hasMaterial;
+
+        DisableExtensionCollider();
+
+        if (extensionLength > 0f &&
+            !hasMaterial &&
+            !warnedAboutMaterial)
+        {
+            Debug.LogWarning(
+                "KogetsuBladeExtensionVisual: Assign an Extension Material.",
+                this);
+
+            warnedAboutMaterial = true;
+        }
+    }
+
+    private void DisableExtensionCollider()
+    {
+        if (physicalCollider == null)
+            physicalCollider = GetComponent<BoxCollider>();
 
         if (physicalCollider != null)
         {
             physicalCollider.isTrigger = false;
-            physicalCollider.enabled = true;
+            physicalCollider.enabled = false;
         }
+    }
 
-        if (extensionLength > 0f && !hasMaterial && !warnedAboutMaterial)
-        {
-            Debug.LogWarning("KogetsuBladeExtensionVisual: Assign an Extension Material to display Senku.", this);
-            warnedAboutMaterial = true;
-        }
+    private void OnDisable()
+    {
+        if (senkuTrail != null)
+            senkuTrail.emitting = false;
     }
 
     private void OnDestroy()
@@ -181,15 +273,6 @@ public sealed class KogetsuBladeExtensionVisual : MonoBehaviour
         extensionWidth = Mathf.Max(0.001f, extensionWidth);
         extensionThickness = Mathf.Max(0.001f, extensionThickness);
 
-        if (physicalCollider == null)
-            physicalCollider = GetComponent<BoxCollider>();
-
-        if (physicalCollider != null)
-        {
-            physicalCollider.isTrigger = false;
-            physicalCollider.center = new Vector3(0f, 0f, extensionLength > 0f ? extensionLength * 0.5f : 0f);
-            physicalCollider.size = new Vector3(extensionWidth, extensionThickness, Mathf.Max(0.001f, extensionLength));
-            physicalCollider.enabled = true;
-        }
+        DisableExtensionCollider();
     }
 }

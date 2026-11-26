@@ -84,6 +84,7 @@
     <Compile Include="Assets\Player\Component\PlayerIdentity.cs" />
     <Compile Include="Assets\Trigger\Kogetu\Kogetsu\KogetsuTriggerBehaviour.cs" />
     <Compile Include="Assets\Effekseer\Example\EfkBasic.cs" />
+    <Compile Include="Assets\Trigger\Kogetu\Test\KogetsuDamageTestTarget.cs" />
     <Compile Include="Assets\Trigger\Manager\TriggerRuntimeContext.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\BezierCurve.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\LaunchProjectile.cs" />
