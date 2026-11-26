@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KogetsuTriggerBehaviour
   swordPrefab: {fileID: 6315013812926185218, guid: 66690afca119eac44ac82ff840d22a50, type: 3}
   scabbardPrefab: {fileID: 1429416168783363693, guid: ab354e5e5222bf94e9690d0c4d9e8a30, type: 3}
-  leftWaistLocalPosition: {x: -0.13, y: 0.03, z: 0.01}
-  leftWaistLocalEulerAngles: {x: 0, y: 0, z: 12}
-  rightWaistLocalPosition: {x: 0.13, y: 0.03, z: 0.01}
-  rightWaistLocalEulerAngles: {x: 0, y: 0, z: -12}
+  leftWaistLocalPosition: {x: -0.135, y: 0.04, z: 0.01}
+  leftWaistLocalEulerAngles: {x: -15, y: 0, z: 12}
+  rightWaistLocalPosition: {x: 0.135, y: 0.04, z: 0.01}
+  rightWaistLocalEulerAngles: {x: -15, y: 0, z: -12}

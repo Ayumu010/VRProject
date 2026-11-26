@@ -79,11 +79,13 @@
     <Compile Include="Assets\VRTemplateAssets\Scripts\XRPokeFollowAffordanceFill.cs" />
     <Compile Include="Assets\Scripts\CombatMenu\TriggerSlotMenuSession.cs" />
     <Compile Include="Assets\Trigger\Manager\TriggerSide.cs" />
+    <Compile Include="Assets\Trigger\Kogetu\KogetsuCollisionGrabTransformer.cs" />
     <Compile Include="Assets\Trigger\Shield\ShieldSurface.cs" />
     <Compile Include="Assets\Scripts\CombatMenu\CombatMenuUI.cs" />
     <Compile Include="Assets\Player\Component\PlayerIdentity.cs" />
     <Compile Include="Assets\Trigger\Kogetu\Kogetsu\KogetsuTriggerBehaviour.cs" />
     <Compile Include="Assets\Effekseer\Example\EfkBasic.cs" />
+    <Compile Include="Assets\Trigger\Kogetu\Test\KogetsuDamageTestTarget.cs" />
     <Compile Include="Assets\Trigger\Manager\TriggerRuntimeContext.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\BezierCurve.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\LaunchProjectile.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="Assets\Trigger\Input\CombatMenuSlotConnector.cs" />
     <Compile Include="Assets\Trigger\ScorpionTriggerBehaviour.cs" />
     <Compile Include="Assets\Trigger\Manager\TriggerControl.cs" />
+    <Compile Include="Assets\Trigger\syuusei\KogetsuPrefabRepairUtility.cs" />
     <Compile Include="Assets\Trigger\Asteroid\ProjectileController.cs" />
     <Compile Include="Assets\Trigger\Manager\TriggerBehaviour.cs" />
     <Compile Include="Assets\Scripts\ProjectileCollisionSystem\ProjectileCollisionSystem.cs" />

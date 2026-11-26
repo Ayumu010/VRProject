@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 [DisallowMultipleComponent]
@@ -45,6 +46,69 @@ public sealed class KogetsuScabbardSocket : MonoBehaviour
         socketInteractor.socketActive = true;
     }
 
+    /// <summary>
+    /// 生成直後の武器を、このSocketに明示的に選択させる。
+    /// 初期配置時のTrigger検出タイミングに依存せず納刀させる。
+    /// </summary>
+    public bool TrySelectSpawnedWeapon(KogetsuWeapon targetWeapon)
+    {
+        if (socketInteractor == null ||
+            targetWeapon == null ||
+            targetWeapon.GrabInteractable == null)
+        {
+            Debug.LogError(
+                "KogetsuScabbardSocket: Socket or Weapon reference is missing.",
+                this);
+            return false;
+        }
+
+        UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grab = targetWeapon.GrabInteractable;
+        XRInteractionManager manager = socketInteractor.interactionManager;
+
+        if (manager == null)
+        {
+            Debug.LogError(
+                "KogetsuScabbardSocket: XRInteractionManager is missing.",
+                this);
+            return false;
+        }
+
+        if (!socketInteractor.isActiveAndEnabled ||
+            !grab.isActiveAndEnabled)
+        {
+            Debug.LogError(
+                "KogetsuScabbardSocket: Socket or Weapon is inactive.",
+                this);
+            return false;
+        }
+
+        if (grab.interactionManager != manager)
+        {
+            Debug.LogError(
+                "KogetsuScabbardSocket: Socket and Weapon use different InteractionManagers.",
+                this);
+            return false;
+        }
+
+        socketInteractor.socketActive = true;
+
+        // すでに選択されていなければ、通常の選択処理を実行する。
+        if (!socketInteractor.IsSelecting(grab))
+        {
+            manager.SelectEnterUnconditionally(socketInteractor, grab);
+        }
+
+        // 選択が成立したか確認する。
+        if (!socketInteractor.IsSelecting(grab))
+        {
+            Debug.LogError(
+                "KogetsuScabbardSocket: Failed to select spawned weapon.",
+                this);
+            return false;
+        }
+
+        return true;
+    }
     private void LateUpdate()
     {
         if (socketInteractor == null || weapon == null)

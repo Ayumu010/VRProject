@@ -15,6 +15,9 @@ public sealed class KogetsuWeapon : MonoBehaviour
     [SerializeField]
     private Transform gripAttachTransform;
 
+    [SerializeField]
+    private KogetsuCollisionGrabTransformer collisionTransformer;
+    
     [Header("Attack")]
     [SerializeField]
     private KogetsuBladeDamage bladeDamage;
@@ -38,6 +41,7 @@ public sealed class KogetsuWeapon : MonoBehaviour
             : gripAttachTransform;
     public XRGrabInteractable GrabInteractable => grabInteractable;
     public Rigidbody Rigidbody { get; private set; }
+    public KogetsuCollisionGrabTransformer CollisionTransformer => collisionTransformer;
 
     private void Awake()
     {
@@ -66,10 +70,13 @@ public sealed class KogetsuWeapon : MonoBehaviour
     {
         CacheComponents();
 
-        if (manager == null || grabInteractable == null || gripAttachTransform == null || Rigidbody == null)
+        if (manager == null || grabInteractable == null || gripAttachTransform == null ||
+            Rigidbody == null || collisionTransformer == null)
         {
-            Debug.LogError("KogetsuWeapon: Manager, Rigidbody, XRGrabInteractable, or GripAttach is missing.", this);
-            return false;
+            Debug.LogError(
+                "KogetsuWeapon: Manager, Rigidbody, XRGrabInteractable, GripAttach, or KogetsuCollisionGrabTransformer is missing.",
+                this); return false;
+
         }
 
         weaponManager = manager;
@@ -101,8 +108,12 @@ public sealed class KogetsuWeapon : MonoBehaviour
         Transform playerRoot,
         Transform excludedRoot = null)
     {
+        if (collisionTransformer != null)
+            collisionTransformer.SetIgnoredRoots(playerRoot, excludedRoot);
+
         if (playerRoot == null)
             return;
+
 
         Collider[] weaponColliders =
             GetComponentsInChildren<Collider>(true);
@@ -149,6 +160,10 @@ public sealed class KogetsuWeapon : MonoBehaviour
 
     public void ResetToDroppedAtSocket()
     {
+        if (collisionTransformer != null)
+            collisionTransformer.ResetCollisionState();
+
+
         currentHolderSide = null;
         state = KogetsuWeaponState.Dropped;
 
@@ -182,6 +197,17 @@ public sealed class KogetsuWeapon : MonoBehaviour
             extensionVisual.SetExtensionLength(active ? extensionLength : 0f);
     }
 
+    /// <summary>
+    /// 旋空Trailの発生を切り替える。
+    /// </summary>
+    public void SetSenkuTrailEmitting(bool emitting)
+    {
+        if (extensionVisual == null)
+            return;
+
+        extensionVisual.SetTrailEmitting(emitting);
+    }
+
     public void CancelSenkuImmediately()
     {
         SetSenkuExtension(false, 0f, 1f, 0f);
@@ -200,6 +226,10 @@ public sealed class KogetsuWeapon : MonoBehaviour
 
         if (extensionVisual == null)
             extensionVisual = GetComponentInChildren<KogetsuBladeExtensionVisual>(true);
+
+        if (collisionTransformer == null)
+            collisionTransformer = GetComponent<KogetsuCollisionGrabTransformer>();
+
     }
 
     private void OnSelectEntered(SelectEnterEventArgs args)
@@ -210,6 +240,10 @@ public sealed class KogetsuWeapon : MonoBehaviour
         if (args.interactorObject is XRSocketInteractor)
         {
             currentHolderSide = null;
+
+            if (collisionTransformer != null)
+                collisionTransformer.ResetCollisionState();
+
             state = KogetsuWeaponState.Sheathed;
             if (weaponManager != null)
                 weaponManager.NotifyWeaponHolderChanged(null);
@@ -260,6 +294,9 @@ public sealed class KogetsuWeapon : MonoBehaviour
                 currentHolderSide = null;
             }
 
+            if (collisionTransformer != null)
+                collisionTransformer.ResetCollisionState();
+
             // Socket解除と手による再取得のイベント順序に依存しないよう、
             // 現在の保持手情報をそのままManagerへ通知する。
             if (weaponManager != null)
@@ -280,8 +317,21 @@ public sealed class KogetsuWeapon : MonoBehaviour
         {
             currentHolderSide = null;
             state = KogetsuWeaponState.Dropped;
+
+            if (collisionTransformer != null)
+                collisionTransformer.ResetCollisionState();
+
             if (weaponManager != null)
                 weaponManager.NotifyWeaponHolderChanged(null);
         }
+
     }
+
+
+    private void OnDestroy()
+    {
+        if (weaponManager != null)
+            weaponManager.NotifyWeaponDestroyed(this);
+    }
+
 }

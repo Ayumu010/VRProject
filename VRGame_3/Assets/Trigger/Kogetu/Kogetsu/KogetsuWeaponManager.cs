@@ -30,6 +30,7 @@ public sealed class KogetsuWeaponManager : MonoBehaviour
     private KogetsuScabbardSocket currentSocket;
     private TriggerSide currentSourceSide;
     private bool hasActiveSet;
+    private SenkuTriggerBehaviour armedSenkuBehaviour;
     private SenkuTriggerBehaviour activeSenkuBehaviour;
 
     public KogetsuWeapon CurrentWeapon => currentWeapon;
@@ -143,6 +144,8 @@ public sealed class KogetsuWeaponManager : MonoBehaviour
 
         Transform socketAttach = socket.SocketAttachTransform;
         Transform gripAttach = weapon.GripAttachTransform;
+        // 剣がSocketZoneに入る前にSocketを有効化する
+        socket.Initialize(weapon);
         if (socketAttach == null || gripAttach == null)
         {
             Debug.LogError("Kogetsu: GripAttach or SocketAttach is missing.", swordInstance);
@@ -156,9 +159,33 @@ public sealed class KogetsuWeaponManager : MonoBehaviour
         Vector3 scaledLocalAttach = Vector3.Scale(gripAttach.localPosition, swordInstance.transform.lossyScale);
         Vector3 rootPosition = socketAttach.position - rootRotation * scaledLocalAttach;
         swordInstance.transform.SetPositionAndRotation(rootPosition, rootRotation);
-
+        // 剣の初期位置をSocket位置に合わせ、物理状態を初期化する。
         weapon.ResetToDroppedAtSocket();
-        socket.Initialize(weapon);
+
+        // TransformとPhysicsの位置情報を同期する。
+        Physics.SyncTransforms();
+
+        // 生成した剣をSocketに明示的に選択させる。
+        if (!socket.TrySelectSpawnedWeapon(weapon))
+        {
+            Debug.LogError(
+                "Kogetsu: Failed to sheathe spawned sword.",
+                swordInstance);
+
+            DestroyCurrentSet();
+            return false;
+        }
+
+        // Socket選択イベントによってSheathedになったことを確認する。
+        if (weapon.State != KogetsuWeaponState.Sheathed)
+        {
+            Debug.LogError(
+                "Kogetsu: Weapon was selected but did not enter Sheathed state.",
+                swordInstance);
+
+            DestroyCurrentSet();
+            return false;
+        }
 
         return true;
     }
@@ -180,65 +207,242 @@ public sealed class KogetsuWeaponManager : MonoBehaviour
                (target == playerRoot || target.IsChildOf(playerRoot));
     }
 
-    public bool TryActivateSenku(
-        TriggerSide holderSide,
-        SenkuTriggerBehaviour senkuBehaviour,
-        float extensionLength,
-        float damageMultiplier,
-        float minimumSwingSpeed)
+    public bool TryArmSenku(
+    TriggerSide holderSide,
+    SenkuTriggerBehaviour senkuBehaviour)
     {
-        if (senkuBehaviour == null || currentWeapon == null || !hasActiveSet)
+        if (armedSenkuBehaviour != null ||
+            activeSenkuBehaviour != null)
+        {
             return false;
+        }
+
+        if (!CanUseSenku(holderSide, senkuBehaviour))
+            return false;
+
+        armedSenkuBehaviour = senkuBehaviour;
+
+        return true;
+    }
+
+    /// <summary>
+    /// BladeDamage から剣速を通知された場合に呼び出す。
+    /// 速度条件を満たしていれば Active に移行する。
+    /// </summary>
+    public bool TryActivateArmedSenku(float swingSpeed)
+    {
+        SenkuTriggerBehaviour senkuBehaviour =
+            armedSenkuBehaviour;
+
+        if (senkuBehaviour == null || currentWeapon == null)
+            return false;
+
+        float requiredSpeed =
+            Mathf.Max(0.05f, senkuBehaviour.MinimumSwingSpeed);
+
+        if (swingSpeed < requiredSpeed)
+            return false;
+
+        if (!CanUseSenku(
+                senkuBehaviour.RegisteredSide,
+                senkuBehaviour))
+        {
+            CancelSenku(senkuBehaviour, false);
+            return false;
+        }
+
+        if (!senkuBehaviour.BeginActiveFromManager())
+        {
+            armedSenkuBehaviour = null;
+            senkuBehaviour.CancelFromWeaponManager(false);
+            return false;
+        }
+
+        armedSenkuBehaviour = null;
+        activeSenkuBehaviour = senkuBehaviour;
+
+        currentWeapon.SetSenkuExtension(
+            true,
+            senkuBehaviour.ExtensionLength,
+            senkuBehaviour.DamageMultiplier,
+            senkuBehaviour.MinimumSwingSpeed);
+
+        return true;
+    }
+
+    public void CancelArmedSenku(
+        SenkuTriggerBehaviour senkuBehaviour)
+    {
+        if (senkuBehaviour != null &&
+            armedSenkuBehaviour == senkuBehaviour)
+        {
+            armedSenkuBehaviour = null;
+        }
+    }
+
+    public void EndSenku(
+        SenkuTriggerBehaviour senkuBehaviour)
+    {
+        if (senkuBehaviour == null ||
+            senkuBehaviour != activeSenkuBehaviour)
+        {
+            return;
+        }
+
+        activeSenkuBehaviour = null;
+
+        if (currentWeapon != null)
+        {
+            currentWeapon.SetSenkuExtension(
+                false,
+                0f,
+                1f,
+                0f);
+        }
+    }
+
+    /// <summary>
+    /// 旋空を使用できる条件をまとめて検証する。
+    /// </summary>
+    private bool CanUseSenku(
+        TriggerSide holderSide,
+        SenkuTriggerBehaviour senkuBehaviour)
+    {
+        if (senkuBehaviour == null ||
+            currentWeapon == null ||
+            !hasActiveSet)
+        {
+            return false;
+        }
 
         if (!CanDealDamageSourceOnly())
             return false;
 
-        if (!currentWeapon.IsHeld || currentWeapon.CurrentHolderSide != holderSide)
+        if (!currentWeapon.IsHeld ||
+            currentWeapon.CurrentHolderSide != holderSide)
+        {
+            return false;
+        }
+
+        if (senkuBehaviour.RegisteredSide != holderSide)
             return false;
 
-        if (slotManager == null || slotManager.GetSelectedTrigger(holderSide) != senkuBehaviour)
+        if (slotManager == null ||
+            slotManager.GetSelectedTrigger(holderSide) != senkuBehaviour)
+        {
             return false;
+        }
 
-        if (!senkuBehaviour.IsSelected)
-            return false;
-
-        if (activeSenkuBehaviour != null && activeSenkuBehaviour != senkuBehaviour)
-            return false;
-
-        activeSenkuBehaviour = senkuBehaviour;
-        currentWeapon.SetSenkuExtension(
-            true,
-            extensionLength,
-            damageMultiplier,
-            minimumSwingSpeed);
-        return true;
+        return senkuBehaviour.IsSelected;
     }
 
-    public void EndSenku(SenkuTriggerBehaviour senkuBehaviour)
+    /// <summary>
+    /// Armed / Active を強制終了する。
+    /// </summary>
+    public void CancelSenku(
+        SenkuTriggerBehaviour senkuBehaviour,
+        bool enterCooldown)
     {
-        if (senkuBehaviour == null || senkuBehaviour != activeSenkuBehaviour)
+        if (senkuBehaviour == null)
             return;
 
-        activeSenkuBehaviour = null;
-        senkuBehaviour.CancelFromWeaponManager();
+        bool wasArmed =
+            armedSenkuBehaviour == senkuBehaviour;
 
-        if (currentWeapon != null)
-            currentWeapon.SetSenkuExtension(false, 0f, 1f, 0f);
+        bool wasActive =
+            activeSenkuBehaviour == senkuBehaviour;
+
+        if (wasArmed)
+            armedSenkuBehaviour = null;
+
+        if (wasActive)
+        {
+            activeSenkuBehaviour = null;
+
+            if (currentWeapon != null)
+            {
+                currentWeapon.SetSenkuExtension(
+                    false,
+                    0f,
+                    1f,
+                    0f);
+            }
+        }
+
+        senkuBehaviour.CancelFromWeaponManager(
+            enterCooldown && wasActive);
     }
 
-    public void NotifySourceKogetsuDeselected(TriggerSide sourceSide)
-    {
-        if (sourceSide == currentSourceSide && activeSenkuBehaviour != null)
-            EndSenku(activeSenkuBehaviour);
-    }
 
-    public void NotifyWeaponHolderChanged(TriggerSide? newHolderSide)
+    public void NotifySourceKogetsuDeselected(
+        TriggerSide sourceSide)
     {
-        if (activeSenkuBehaviour == null)
+        if (sourceSide != currentSourceSide)
             return;
 
-        if (!newHolderSide.HasValue || activeSenkuBehaviour.RegisteredSide != newHolderSide.Value)
-            EndSenku(activeSenkuBehaviour);
+        if (armedSenkuBehaviour != null)
+            CancelSenku(armedSenkuBehaviour, false);
+
+        if (activeSenkuBehaviour != null)
+            CancelSenku(activeSenkuBehaviour, true);
+    }
+
+    public void NotifyWeaponHolderChanged(
+        TriggerSide? newHolderSide)
+    {
+        if (armedSenkuBehaviour != null)
+        {
+            if (!newHolderSide.HasValue ||
+                armedSenkuBehaviour.RegisteredSide != newHolderSide.Value)
+            {
+                CancelSenku(armedSenkuBehaviour, false);
+            }
+        }
+
+        if (activeSenkuBehaviour != null)
+        {
+            if (!newHolderSide.HasValue ||
+                activeSenkuBehaviour.RegisteredSide != newHolderSide.Value)
+            {
+                CancelSenku(activeSenkuBehaviour, true);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 管理対象の弧月が外部から破棄された場合の後始末。
+    /// Armed / Active の両方を解除し、鞘とSocketも破棄する。
+    /// </summary>
+    public void NotifyWeaponDestroyed(KogetsuWeapon destroyedWeapon)
+    {
+        // 現在管理している武器以外の破棄通知は無視する。
+        if (!ReferenceEquals(currentWeapon, destroyedWeapon))
+            return;
+
+        // Armed状態を解除する。
+        if (armedSenkuBehaviour != null)
+            CancelSenku(armedSenkuBehaviour, false);
+
+        // Active状態を解除し、延長メッシュとTrailを停止する。
+        if (activeSenkuBehaviour != null)
+            CancelSenku(activeSenkuBehaviour, false);
+
+        // Socketを無効化する。
+        if (currentSocket != null)
+            currentSocket.SetSocketActive(false);
+
+        // 鞘も破棄して、古い武器セットを残さない。
+        if (currentScabbard != null)
+        {
+            currentScabbard.SetActive(false);
+            Destroy(currentScabbard);
+        }
+
+        // Managerの参照をすべてクリアする。
+        currentWeapon = null;
+        currentScabbard = null;
+        currentSocket = null;
+        hasActiveSet = false;
     }
 
     private bool CanDealDamageSourceOnly()
@@ -325,9 +529,11 @@ public sealed class KogetsuWeaponManager : MonoBehaviour
         if (currentSocket != null)
             currentSocket.SetSocketActive(false);
 
+        if (armedSenkuBehaviour != null)
+            CancelSenku(armedSenkuBehaviour, false);
+
         if (activeSenkuBehaviour != null)
-            activeSenkuBehaviour.CancelFromWeaponManager();
-        activeSenkuBehaviour = null;
+            CancelSenku(activeSenkuBehaviour, false);
 
         if (currentWeapon != null)
         {
@@ -388,6 +594,50 @@ public sealed class KogetsuWeaponManager : MonoBehaviour
         }
 
         TrySpawn(side);
+    }
+
+    [ContextMenu("Debug/Activate Senku From Current Holder Hand")]
+    private void DebugActivateSenku()
+    {
+        if (slotManager == null || currentWeapon == null)
+        {
+            Debug.LogWarning("Senku: Weapon or SlotManager is missing.", this);
+            return;
+        }
+
+        if (!currentWeapon.IsHeld ||
+            !currentWeapon.CurrentHolderSide.HasValue)
+        {
+            Debug.LogWarning("Senku: Sword must be held first.", this);
+            return;
+        }
+
+        TriggerSide holderSide = currentWeapon.CurrentHolderSide.Value;
+
+        TriggerBehaviour selectedTrigger =
+            slotManager.GetSelectedTrigger(holderSide);
+
+        if (!(selectedTrigger is SenkuTriggerBehaviour senku))
+        {
+            Debug.LogWarning(
+                $"Senku: Senku must be selected on the holder side ({holderSide}).",
+                this);
+            return;
+        }
+
+        if (!senku.TryActivate())
+        {
+            Debug.LogWarning(
+                "Senku: Activation rejected. Check source Kogetsu, holder side, and cooldown.",
+                this);
+            return;
+        }
+
+        Debug.Log(
+            $"Senku activated: Length={senku.ExtensionLength}m, " +
+            $"Duration={senku.ActiveDuration}s, " +
+            $"DamageMultiplier={senku.DamageMultiplier}x",
+            this);
     }
 
     private void OnDestroy()

@@ -33,10 +33,15 @@ public sealed class KogetsuTriggerBehaviour : TriggerBehaviour
         weaponManager = ResolveWeaponManager();
     }
 
-    protected override void OnSelected()
+    protected override void OnInput(
+        TriggerControl control,
+        bool pressed)
     {
-        // 選択状態は WeaponManager.CanDealDamage() が毎回確認する。
-        // そのため、選択解除後も武器オブジェクト自体は残せる。
+        // Triggerを押した瞬間だけ弧月を生成する。
+        if (control != TriggerControl.Trigger || !pressed)
+            return;
+
+        RequestSpawn();
     }
 
     protected override void OnDeselected()

@@ -3,6 +3,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.Rendering;
+using UnityEngine.XR.Interaction.Toolkit.Transformers;
+
 
 /// <summary>
 /// Imported sword/scabbard FBX models are wrapped in runtime-ready prefab roots,
@@ -16,6 +19,9 @@ public sealed class KogetsuAssetSetupWindow : EditorWindow
     private Material senkuExtensionMaterial;
     private DefaultAsset outputFolder;
     private bool createTriggerAssets = true;
+
+    private Material senkuTrailMaterial;
+    private const string SenkuTrailMaterialPath = "Assets/Trigger/Kogetu/Material/M_SenkuTrail.mat";
 
     private const string DefaultOutputFolder = "Assets/Trigger/Kogetsu/Generated";
 
@@ -43,6 +49,13 @@ public sealed class KogetsuAssetSetupWindow : EditorWindow
             senkuExtensionMaterial,
             typeof(Material),
             false);
+
+        senkuTrailMaterial = (Material)EditorGUILayout.ObjectField(
+            "Senku Trail Material",
+            senkuTrailMaterial,
+            typeof(Material),
+            false);
+
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Output", EditorStyles.boldLabel);
@@ -112,8 +125,10 @@ public sealed class KogetsuAssetSetupWindow : EditorWindow
             if (body == null)
                 body = root.AddComponent<Rigidbody>();
 
+            // Rigidbodyは非保持時Dynamic。保持中のKinematic化はXRIに任せる。
             body.mass = 0.7f;
             body.useGravity = true;
+            body.isKinematic = false;
             body.interpolation = RigidbodyInterpolation.Interpolate;
             body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
@@ -125,7 +140,8 @@ public sealed class KogetsuAssetSetupWindow : EditorWindow
             bladeBase.localPosition = new Vector3(0f, 0f, 0.16f);
             Transform bladeTip = CreateChild(root.transform, "BladeTip");
             bladeTip.localPosition = new Vector3(0f, 0f, 0.95f);
-            // Solid colliders are deliberately separate from sweep-based damage detection.
+
+            // 物理移動制限用Collider。
             Transform handleColliderRoot = CreateChild(root.transform, "HandlePhysicalCollider");
             BoxCollider handleCollider = handleColliderRoot.gameObject.AddComponent<BoxCollider>();
             handleCollider.size = new Vector3(0.07f, 0.05f, 0.22f);
@@ -139,39 +155,130 @@ public sealed class KogetsuAssetSetupWindow : EditorWindow
             bladeCollider.height = 0.86f;
             bladeCollider.isTrigger = false;
 
-            // Add the interactable after the child colliders exist so its initial
-            // collider discovery includes both the handle and blade colliders.
-            XRGrabInteractable grab = root.AddComponent<XRGrabInteractable>();
-            grab.selectMode = InteractableSelectMode.Single;
-            grab.movementType = XRBaseInteractable.MovementType.VelocityTracking;
-            grab.throwOnDetach = true;
-            grab.attachTransform = gripAttach;
-
+            // 旋空延長の表示・物理Collider。
             Transform extensionObject = CreateChild(root.transform, "SenkuExtensionVisual");
             extensionObject.gameObject.AddComponent<MeshFilter>();
             MeshRenderer extensionRenderer = extensionObject.gameObject.AddComponent<MeshRenderer>();
             extensionRenderer.sharedMaterial = senkuExtensionMaterial;
+
             BoxCollider extensionCollider = extensionObject.gameObject.AddComponent<BoxCollider>();
             extensionCollider.isTrigger = false;
-            extensionCollider.enabled = true;
+            extensionCollider.enabled = false;
             extensionCollider.center = Vector3.zero;
             extensionCollider.size = new Vector3(0.025f, 0.012f, 0.001f);
-            if (!grab.colliders.Contains(extensionCollider))
-                grab.colliders.Add(extensionCollider);
 
-            KogetsuBladeExtensionVisual extensionVisual = extensionObject.gameObject.AddComponent<KogetsuBladeExtensionVisual>();
+            KogetsuBladeExtensionVisual extensionVisual =
+                extensionObject.gameObject.AddComponent<KogetsuBladeExtensionVisual>();
             SetObjectReference(extensionVisual, "bladeBase", bladeBase);
             SetObjectReference(extensionVisual, "bladeTip", bladeTip);
+
+            // TrailAnchorはExtensionVisualの兄弟として刀のルート直下に配置する。
+            Transform trailAnchor = CreateChild(root.transform, "SenkuTrailAnchor");
+            TrailRenderer trail = trailAnchor.gameObject.AddComponent<TrailRenderer>();
+            trail.time = 0.15f;
+            trail.widthMultiplier = 0.04f;
+            trail.widthCurve = new AnimationCurve(
+                new Keyframe(0f, 1f),
+                new Keyframe(1f, 0f));
+            trail.minVertexDistance = 0.02f;
+            trail.emitting = false;
+            trail.alignment = LineAlignment.View;
+            trail.shadowCastingMode = ShadowCastingMode.Off;
+            trail.receiveShadows = false;
+            trail.autodestruct = false;
+            trail.numCornerVertices = 2;
+            trail.numCapVertices = 2;
+
+            Gradient trailGradient = new Gradient();
+            trailGradient.SetKeys(
+                new[]
+                {
+                new GradientColorKey(Color.white, 0f),
+                new GradientColorKey(new Color(0.72f, 0.98f, 1f, 1f), 1f)
+                },
+                new[]
+                {
+                new GradientAlphaKey(1f, 0f),
+                new GradientAlphaKey(0f, 1f)
+                });
+            trail.colorGradient = trailGradient;
+
+            Material trailMaterialSource = senkuTrailMaterial;
+            if (trailMaterialSource == null)
+                trailMaterialSource = AssetDatabase.LoadAssetAtPath<Material>(SenkuTrailMaterialPath);
+
+            if (trailMaterialSource != null)
+            {
+                // 元の共通Materialを直接変更せず、生成Prefab用のMaterialコピーを作る。
+                Material generatedTrailMaterial = new Material(trailMaterialSource);
+                generatedTrailMaterial.name = "M_SenkuTrail";
+
+                // URP Particles/Unlit等、Emissionプロパティを持つShaderの場合だけ発光を有効化する。
+                if (generatedTrailMaterial.HasProperty("_EmissionColor"))
+                {
+                    generatedTrailMaterial.EnableKeyword("_EMISSION");
+                    generatedTrailMaterial.SetColor(
+                        "_EmissionColor",
+                        new Color(0.54f, 1.476f, 1.8f, 1f));
+                }
+
+                string generatedMaterialPath = AssetDatabase.GenerateUniqueAssetPath(
+                    folderPath + "/M_SenkuTrail.mat");
+                AssetDatabase.CreateAsset(generatedTrailMaterial, generatedMaterialPath);
+                trail.sharedMaterial = generatedTrailMaterial;
+            }
+            else
+            {
+                Debug.LogWarning(
+                    "Kogetsu Setup: Senku Trail Material is not assigned. Assign " +
+                    SenkuTrailMaterialPath + " to the generated TrailRenderer.");
+            }
+
+            SetObjectReference(extensionVisual, "senkuTrail", trail);
 
             KogetsuBladeDamage bladeDamage = root.AddComponent<KogetsuBladeDamage>();
             SetObjectReference(bladeDamage, "bladeBase", bladeBase);
             SetObjectReference(bladeDamage, "bladeTip", bladeTip);
+
+            // XRI標準のGripAttach追従を先に実行し、衝突制限Transformerを後に実行する。
+            XRGeneralGrabTransformer generalGrabTransformer =
+                root.AddComponent<XRGeneralGrabTransformer>();
+            KogetsuCollisionGrabTransformer collisionTransformer =
+                root.AddComponent<KogetsuCollisionGrabTransformer>();
+
+            XRGrabInteractable grab = root.AddComponent<XRGrabInteractable>();
+            grab.selectMode = InteractableSelectMode.Single;
+            grab.movementType = XRBaseInteractable.MovementType.Kinematic;
+            grab.trackPosition = true;
+            grab.trackRotation = true;
+            grab.smoothPosition = false;
+            grab.smoothRotation = false;
+            grab.throwOnDetach = true;
+            grab.attachTransform = gripAttach;
+
+            // 掴み判定・Socket選択は従来どおり柄Colliderだけを使用。
+            grab.colliders.Clear();
+            grab.colliders.Add(handleCollider);
+
+            // 自動でXRGeneralGrabTransformerが二重登録されないようにし、実行順を明示。
+            grab.addDefaultGrabTransformers = false;
+            grab.startingSingleGrabTransformers.Clear();
+            grab.startingSingleGrabTransformers.Add(generalGrabTransformer);
+            grab.startingSingleGrabTransformers.Add(collisionTransformer);
+
+            SetObjectReference(collisionTransformer, "grabInteractable", grab);
+            SetObjectReference(collisionTransformer, "weaponBody", body);
+            SetObjectArrayReference(
+                collisionTransformer,
+                "collisionColliders",
+                new Object[] { handleCollider, bladeCollider, extensionCollider });
 
             KogetsuWeapon weapon = root.AddComponent<KogetsuWeapon>();
             SetObjectReference(weapon, "grabInteractable", grab);
             SetObjectReference(weapon, "gripAttachTransform", gripAttach);
             SetObjectReference(weapon, "bladeDamage", bladeDamage);
             SetObjectReference(weapon, "extensionVisual", extensionVisual);
+            SetObjectReference(weapon, "collisionTransformer", collisionTransformer);
 
             string path = AssetDatabase.GenerateUniqueAssetPath(folderPath + "/KogetsuSword.prefab");
             GameObject prefab = PrefabUtility.SaveAsPrefabAsset(root, path);
@@ -248,10 +355,11 @@ public sealed class KogetsuAssetSetupWindow : EditorWindow
 
         SenkuTriggerBehaviour senkuBehaviour = CreateInstance<SenkuTriggerBehaviour>();
         SetFloat(senkuBehaviour, "extensionLength", 5f);
+        SetFloat(senkuBehaviour, "activationWindow", 0.7f);
         SetFloat(senkuBehaviour, "activeDuration", 0.4f);
         SetFloat(senkuBehaviour, "cooldown", 1.5f);
         SetFloat(senkuBehaviour, "damageMultiplier", 1.5f);
-        SetFloat(senkuBehaviour, "minimumSwingSpeed", 0f);
+        SetFloat(senkuBehaviour, "minimumSwingSpeed", 1.5f);
         AssetDatabase.CreateAsset(
             senkuBehaviour,
             AssetDatabase.GenerateUniqueAssetPath(folderPath + "/SenkuBehaviour.asset"));
@@ -302,6 +410,29 @@ public sealed class KogetsuAssetSetupWindow : EditorWindow
         serializedObject.ApplyModifiedPropertiesWithoutUndo();
         EditorUtility.SetDirty(target);
     }
+
+    private static void SetObjectArrayReference(Object target, string propertyName, Object[] values)
+    {
+        SerializedObject serializedObject = new SerializedObject(target);
+        serializedObject.Update();
+
+        SerializedProperty property = serializedObject.FindProperty(propertyName);
+        if (property == null || !property.isArray)
+        {
+            Debug.LogError(
+                $"Kogetsu Setup: Serialized array field '{propertyName}' was not found on {target.GetType().Name}.",
+                target);
+            return;
+        }
+
+        property.arraySize = values != null ? values.Length : 0;
+        for (int i = 0; i < property.arraySize; i++)
+            property.GetArrayElementAtIndex(i).objectReferenceValue = values[i];
+
+        serializedObject.ApplyModifiedPropertiesWithoutUndo();
+        EditorUtility.SetDirty(target);
+    }
+
 
     private static void SetString(Object target, string propertyName, string value)
     {
