@@ -123,6 +123,7 @@
     <Compile Include="Assets\Trigger\Input\CombatMenuSlotConnector.cs" />
     <Compile Include="Assets\Trigger\ScorpionTriggerBehaviour.cs" />
     <Compile Include="Assets\Trigger\Manager\TriggerControl.cs" />
+    <Compile Include="Assets\Trigger\syuusei\KogetsuPrefabRepairUtility.cs" />
     <Compile Include="Assets\Trigger\Asteroid\ProjectileController.cs" />
     <Compile Include="Assets\Trigger\Manager\TriggerBehaviour.cs" />
     <Compile Include="Assets\Scripts\ProjectileCollisionSystem\ProjectileCollisionSystem.cs" />

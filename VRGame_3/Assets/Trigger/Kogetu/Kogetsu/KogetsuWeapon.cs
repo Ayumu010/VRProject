@@ -17,7 +17,7 @@ public sealed class KogetsuWeapon : MonoBehaviour
 
     [SerializeField]
     private KogetsuCollisionGrabTransformer collisionTransformer;
-
+    
     [Header("Attack")]
     [SerializeField]
     private KogetsuBladeDamage bladeDamage;

@@ -487,7 +487,10 @@ public sealed class KogetsuCollisionGrabTransformer : XRBaseGrabTransformer
 
                 pose.rotation = Quaternion.Slerp(startRotation, targetRotation, low);
                 collisionThisPass = true;
-                RecordContact(penetrationCollider, penetrationDirection, -pose.rotation * Vector3.forward);
+                RecordContact(
+                    penetrationCollider,
+                    penetrationDirection,
+                    -(pose.rotation * Vector3.forward));
                 return;
             }
 
