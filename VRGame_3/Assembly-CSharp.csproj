@@ -79,6 +79,7 @@
     <Compile Include="Assets\VRTemplateAssets\Scripts\XRPokeFollowAffordanceFill.cs" />
     <Compile Include="Assets\Scripts\CombatMenu\TriggerSlotMenuSession.cs" />
     <Compile Include="Assets\Trigger\Manager\TriggerSide.cs" />
+    <Compile Include="Assets\Trigger\Kogetu\KogetsuCollisionGrabTransformer.cs" />
     <Compile Include="Assets\Trigger\Shield\ShieldSurface.cs" />
     <Compile Include="Assets\Scripts\CombatMenu\CombatMenuUI.cs" />
     <Compile Include="Assets\Player\Component\PlayerIdentity.cs" />
