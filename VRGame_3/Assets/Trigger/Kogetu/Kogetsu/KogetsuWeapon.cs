@@ -295,4 +295,12 @@ public sealed class KogetsuWeapon : MonoBehaviour
                 weaponManager.NotifyWeaponHolderChanged(null);
         }
     }
+
+
+    private void OnDestroy()
+    {
+        if (weaponManager != null)
+            weaponManager.NotifyWeaponDestroyed(this);
+    }
+
 }

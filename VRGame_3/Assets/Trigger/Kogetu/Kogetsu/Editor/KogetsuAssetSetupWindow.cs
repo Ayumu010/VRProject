@@ -156,7 +156,7 @@ public sealed class KogetsuAssetSetupWindow : EditorWindow
             extensionRenderer.sharedMaterial = senkuExtensionMaterial;
             BoxCollider extensionCollider = extensionObject.gameObject.AddComponent<BoxCollider>();
             extensionCollider.isTrigger = false;
-            extensionCollider.enabled = true;
+            extensionCollider.enabled = false;
             extensionCollider.center = Vector3.zero;
             extensionCollider.size = new Vector3(0.025f, 0.012f, 0.001f);
 
@@ -249,10 +249,11 @@ public sealed class KogetsuAssetSetupWindow : EditorWindow
 
         SenkuTriggerBehaviour senkuBehaviour = CreateInstance<SenkuTriggerBehaviour>();
         SetFloat(senkuBehaviour, "extensionLength", 5f);
+        SetFloat(senkuBehaviour, "activationWindow", 0.7f);
         SetFloat(senkuBehaviour, "activeDuration", 0.4f);
         SetFloat(senkuBehaviour, "cooldown", 1.5f);
         SetFloat(senkuBehaviour, "damageMultiplier", 1.5f);
-        SetFloat(senkuBehaviour, "minimumSwingSpeed", 0f);
+        SetFloat(senkuBehaviour, "minimumSwingSpeed", 1.5f);
         AssetDatabase.CreateAsset(
             senkuBehaviour,
             AssetDatabase.GenerateUniqueAssetPath(folderPath + "/SenkuBehaviour.asset"));

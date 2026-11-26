@@ -409,6 +409,42 @@ public sealed class KogetsuWeaponManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 管理対象の弧月が外部から破棄された場合の後始末。
+    /// Armed / Active の両方を解除し、鞘とSocketも破棄する。
+    /// </summary>
+    public void NotifyWeaponDestroyed(KogetsuWeapon destroyedWeapon)
+    {
+        // 現在管理している武器以外の破棄通知は無視する。
+        if (!ReferenceEquals(currentWeapon, destroyedWeapon))
+            return;
+
+        // Armed状態を解除する。
+        if (armedSenkuBehaviour != null)
+            CancelSenku(armedSenkuBehaviour, false);
+
+        // Active状態を解除し、延長メッシュとTrailを停止する。
+        if (activeSenkuBehaviour != null)
+            CancelSenku(activeSenkuBehaviour, false);
+
+        // Socketを無効化する。
+        if (currentSocket != null)
+            currentSocket.SetSocketActive(false);
+
+        // 鞘も破棄して、古い武器セットを残さない。
+        if (currentScabbard != null)
+        {
+            currentScabbard.SetActive(false);
+            Destroy(currentScabbard);
+        }
+
+        // Managerの参照をすべてクリアする。
+        currentWeapon = null;
+        currentScabbard = null;
+        currentSocket = null;
+        hasActiveSet = false;
+    }
+
     private bool CanDealDamageSourceOnly()
     {
         return hasActiveSet && currentWeapon != null &&
